@@ -1,42 +1,37 @@
-function abs(x) {
-  return x >= 0 ? x : -x;
-}
+import { display } from 'sicp';
+import { abs, square } from './utils.js';
 
-function square(x) {
-  return x * x;
-}
-
-function is_good_enough(guess, x) {
-  return abs(square(guess) - x) < 0.001;
-}
-
-function average(x, y) {
-  return (x + y) / 2;
-}
-
-function improve(guess, x) {
-  return average(guess, x / guess);
+function sqrt(x) {
+  return sqrt_iter(1, x);
 }
 
 function sqrt_iter(guess, x) {
   return is_good_enough(guess, x) ? guess : sqrt_iter(improve(guess, x), x);
 }
 
-function sqrt(x) {
-  return sqrt_iter(1, x);
+function is_good_enough(guess, x) {
+  return abs(square(guess) - x) < 0.001;
 }
 
-// sqrt(0.0001)
-// == 0.03230844833048122
+function improve(guess, x) {
+  return average(guess, x / guess);
+}
+
+function average(x, y) {
+  return (x + y) / 2;
+}
+
+display(sqrt(0.0001));
+// 0.03230844833048122
 // expected value 0.01
 
-// sqrt(10000000000000)
+// display(sqrt(10000000000000));
 // not terminate
 
 const tolerance = 0.001;
 
-function is_good_enough_v2(pre_guess, guess) {
-  return abs(guess - pre_guess) / pre_guess < tolerance;
+function sqrt_v2(x) {
+  return sqrt_iter_v2(1, x);
 }
 
 function sqrt_iter_v2(guess, x) {
@@ -45,14 +40,14 @@ function sqrt_iter_v2(guess, x) {
     : sqrt_iter_v2(improve(guess, x), x);
 }
 
-function sqrt_v2(x) {
-  return sqrt_iter_v2(1, x);
+function is_good_enough_v2(pre_guess, guess) {
+  return abs(guess - pre_guess) / pre_guess < tolerance;
 }
 
-// sqrt_v2(0.0001)
-// == 0.010000714038711746
+display(sqrt_v2(0.0001));
+// 0.010000714038711746
 
-// sqrt_v2(10000000000000)
-// == 3162433.547242504
-// square(3162433.547242504)
-// == 10000985940724.807
+display(sqrt_v2(10000000000000));
+// 3162433.547242504
+display(square(3162433.547242504));
+// 10000985940724.807
