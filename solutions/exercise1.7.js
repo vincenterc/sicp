@@ -1,5 +1,5 @@
 import { display } from 'sicp';
-import { abs, square } from './utils.js';
+import { abs, average, square } from './utils.js';
 
 function sqrt(x) {
   return sqrt_iter(1, x);
@@ -15,10 +15,6 @@ function is_good_enough(guess, x) {
 
 function improve(guess, x) {
   return average(guess, x / guess);
-}
-
-function average(x, y) {
-  return (x + y) / 2;
 }
 
 display(sqrt(0.0001));
