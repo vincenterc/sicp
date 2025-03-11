@@ -1,11 +1,11 @@
-import { display, math_floor, math_log2 } from 'sicp';
-import { abs, average, is_even, square } from './utils.js';
+import { display, math_abs, math_floor, math_log2 } from 'sicp';
+import { average, is_even, square } from './utils.js';
 
 const tolerance = 0.00001;
 
 function fixed_point(f, first_guess) {
   function close_enough(x, y) {
-    return abs(x - y) < tolerance;
+    return math_abs(x - y) < tolerance;
   }
 
   function try_with(guess) {

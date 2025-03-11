@@ -1,7 +1,3 @@
-function abs(x) {
-  return x >= 0 ? x : -x;
-}
-
 function average(x, y) {
   return (x + y) / 2;
 }
@@ -34,4 +30,4 @@ function square(x) {
   return x * x;
 }
 
-export { abs, average, cube, identity, inc, is_even, multiply, plus, square };
+export { average, cube, identity, inc, is_even, multiply, plus, square };

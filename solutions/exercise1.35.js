@@ -1,11 +1,10 @@
-import { display } from 'sicp';
-import { abs } from './utils.js';
+import { display, math_abs } from 'sicp';
 
 const tolerance = 0.00001;
 
 function fixed_point(f, first_guess) {
   function close_enough(x, y) {
-    return abs(x - y) < tolerance;
+    return math_abs(x - y) < tolerance;
   }
 
   function try_with(guess) {

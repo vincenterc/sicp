@@ -1,5 +1,5 @@
-import { display } from 'sicp';
-import { abs, cube } from './utils.js';
+import { display, math_abs } from 'sicp';
+import { cube } from './utils.js';
 
 const tolerance = 0.001;
 
@@ -14,7 +14,7 @@ function cube_root_iter(guess, x) {
 }
 
 function is_good_enough(guess, x) {
-  return abs(cube(guess) - x) < 0.001;
+  return math_abs(cube(guess) - x) < 0.001;
 }
 
 function improve(guess, x) {
