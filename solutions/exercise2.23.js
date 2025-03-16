@@ -1,29 +1,15 @@
-// function square_list(items) {
-//   function iter(things, answer) {
-//     return is_null(things)
-//       ? answer
-//       : iter(tail(things), pair(square(head(things)), answer));
-//   }
-//   return iter(items, null);
-// }
-// square_list(list(1, 2, 3))
-// == iter(list(1, 2, 3), null)
-// == iter(list(2, 3), [1, null])
-// == iter(list(3), [4, [1, null]])
-// == iter(null, [9, [4, [1, null]]])
-// == [9, [4, [1, null]]]
+import { display, head, is_null, list, tail } from 'sicp';
 
-// function square_list(items) {
-//   function iter(things, answer) {
-//     return is_null(things)
-//       ? answer
-//       : iter(tail(things), pair(answer, square(head(things))));
-//   }
-//   return iter(items, null);
-// }
-// square_list(list(1, 2, 3))
-// == iter(list(1, 2, 3), null)
-// == iter(list(2, 3), [null, 1])
-// == iter(list(3), [[null, 1], 4])
-// == iter(null, [[[null, 1], 4], 9])
-// == [[[null, 1], 4], 9]
+function for_each(fun, items) {
+  if (is_null(items)) {
+    return true;
+  } else {
+    fun(head(items));
+    for_each(fun, tail(items));
+  }
+}
+
+for_each((x) => display(x), list(57, 321, 88));
+// 57
+// 321
+// 88

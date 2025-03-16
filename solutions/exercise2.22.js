@@ -1,18 +1,29 @@
-import { display, head, is_null, list, pair, tail } from 'sicp';
-import { square } from './utils.js';
+// function square_list(items) {
+//   function iter(things, answer) {
+//     return is_null(things)
+//       ? answer
+//       : iter(tail(things), pair(square(head(things)), answer));
+//   }
+//   return iter(items, null);
+// }
+// square_list(list(1, 2, 3))
+// == iter(list(1, 2, 3), null)
+// == iter(list(2, 3), [1, null])
+// == iter(list(3), [4, [1, null]])
+// == iter(null, [9, [4, [1, null]]])
+// == [9, [4, [1, null]]]
 
-function square_list(items) {
-  return is_null(items)
-    ? null
-    : pair(square(head(items)), square_list(tail(items)));
-}
-
-display(square_list(list(1, 2, 3, 4)));
-// [1, [4, [9, [16, null]]]]
-
-function square_list_map(items) {
-  return map(square, items);
-}
-
-display(square_list(list(1, 2, 3, 4)));
-// [1, [4, [9, [16, null]]]]
+// function square_list(items) {
+//   function iter(things, answer) {
+//     return is_null(things)
+//       ? answer
+//       : iter(tail(things), pair(answer, square(head(things))));
+//   }
+//   return iter(items, null);
+// }
+// square_list(list(1, 2, 3))
+// == iter(list(1, 2, 3), null)
+// == iter(list(2, 3), [null, 1])
+// == iter(list(3), [[null, 1], 4])
+// == iter(null, [[[null, 1], 4], 9])
+// == [[[null, 1], 4], 9]

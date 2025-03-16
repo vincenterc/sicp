@@ -1,45 +1,18 @@
-import { display, head, is_null, list, tail } from 'sicp';
+import { display, head, is_null, list, pair, tail } from 'sicp';
+import { square } from './utils.js';
 
-function plus_curried(x) {
-  return (y) => x + y;
-}
-
-function brooks(curried_f, items) {
+function square_list(items) {
   return is_null(items)
-    ? curried_f
-    : brooks(curried_f(head(items)), tail(items));
+    ? null
+    : pair(square(head(items)), square_list(tail(items)));
 }
 
-display(brooks(plus_curried, list(3, 4)));
-// 7
+display(square_list(list(1, 2, 3, 4)));
+// [1, [4, [9, [16, null]]]]
 
-function brooks_curried(items) {
-  return brooks(head(items), tail(items));
+function square_list_map(items) {
+  return map(square, items);
 }
 
-display(brooks_curried(list(plus_curried, 3, 4)));
-// 7
-
-// brooks_curried(list(brooks_curried, list(plus_curried, 3, 4)))
-// == brooks(brooks_curried, list(list(plus_curried, 3, 4)))
-// == brooks_curried(list(plus_curried, 3, 4))
-// == brooks(plus_curried, list(3, 4))
-// == plus_curried(3)(4)
-// == 7
-display(brooks_curried(list(brooks_curried, list(plus_curried, 3, 4))));
-// 7
-
-// brooks_curried(
-//   list(brooks_curried, list(brooks_curried, list(plus_curried, 3, 4))),
-// )
-// == brooks(
-// 	 brooks_curried, list(list(brooks_curried, list(plus_curried, 3, 4)))
-//    )
-// == brooks_curried(list(brooks_curried, list(plus_curried, 3, 4)))
-// == 7
-display(
-  brooks_curried(
-    list(brooks_curried, list(brooks_curried, list(plus_curried, 3, 4))),
-  ),
-);
-// 7
+display(square_list(list(1, 2, 3, 4)));
+// [1, [4, [9, [16, null]]]]

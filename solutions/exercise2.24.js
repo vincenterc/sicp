@@ -1,15 +1,18 @@
-import { display, head, is_null, list, tail } from 'sicp';
+// list(1, list(2, list(3, 4)))
+// == [1, [[2, [[3, [4, null]], null]], null]]
 
-function for_each(fun, items) {
-  if (is_null(items)) {
-    return true;
-  } else {
-    fun(head(items));
-    for_each(fun, tail(items));
-  }
-}
+// / \
+// 1 / \
+//  / \ null
+//  2 / \
+//   / \ null
+//   3 / \
+//     4  null
 
-for_each((x) => display(x), list(57, 321, 88));
-// 57
-// 321
-// 88
+// list(1, list(2, list(3, 4)))
+// / \
+// 1  list(2, list(3, 4))
+//    / \
+//    2  list(3, 4)
+//       / \
+//       3  4

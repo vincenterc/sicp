@@ -1,75 +1,33 @@
-import { display, head, is_number, is_pair, list, tail } from 'sicp';
+import {
+  display_list,
+  head,
+  is_null,
+  is_pair,
+  list,
+  map,
+  pair,
+  tail,
+} from 'sicp';
+import { square } from './utils.js';
 
-function make_mobile(left, right) {
-  return list(left, right);
+function square_tree(tree) {
+  return is_null(tree)
+    ? null
+    : !is_pair(tree)
+    ? square(tree)
+    : pair(square_tree(head(tree)), square_tree(tail(tree)));
 }
 
-function make_branch(length, structure) {
-  return list(length, structure);
-}
+display_list(square_tree(list(1, list(2, list(3, 4), 5), list(6, 7))));
+// list(1, list(4, list(9, 16), 25), list(36, 49))
 
-function left_branch(mobile) {
-  return head(mobile);
-}
-
-function right_branch(mobile) {
-  return head(tail(mobile));
-}
-
-function branch_length(branch) {
-  return head(branch);
-}
-
-function branch_structure(branch) {
-  return head(tail(branch));
-}
-
-function branch_weight(branch) {
-  const structure = branch_structure(branch);
-
-  return !is_pair(structure) ? structure : total_weight(structure);
-}
-
-function total_weight(mobile) {
-  return (
-    branch_weight(left_branch(mobile)) + branch_weight(right_branch(mobile))
+function square_tree_map(tree) {
+  return map(
+    (sub_tree) =>
+      is_pair(sub_tree) ? square_tree_map(sub_tree) : square(sub_tree),
+    tree,
   );
 }
 
-function balanced(mobile) {
-  const l_branch = left_branch(mobile);
-  const l_branch_structure = branch_structure(l_branch);
-  const r_branch = right_branch(mobile);
-  const r_branch_structure = branch_structure(r_branch);
-
-  return (
-    branch_length(l_branch) * branch_weight(l_branch) ===
-      branch_length(r_branch) * branch_weight(r_branch) &&
-    (!is_pair(l_branch_structure) || balanced(l_branch_structure)) &&
-    (!is_pair(r_branch_structure) || balanced(r_branch_structure))
-  );
-}
-
-display(
-  balanced(
-    make_mobile(
-      make_branch(2, make_mobile(make_branch(2, 2), make_branch(2, 2))),
-      make_branch(4, 2),
-    ),
-  ),
-);
-
-// For
-// function make_mobile(left, right) {
-//   return pair(left, right);
-// }
-// function make_branch(length, structure) {
-//   return pair(length, structure);
-// },
-// need change
-// function right_branch(mobile) {
-//   return tail(mobile);
-// }
-// function right_branch(mobile) {
-//   return tail(mobile);
-// }.
+display_list(square_tree_map(list(1, list(2, list(3, 4), 5), list(6, 7))));
+// list(1, list(4, list(9, 16), 25), list(36, 49))

@@ -1,6 +1,14 @@
-// head(tail(head(tail(tail(list(1, 3, list(5, 7), 9))))))
+const x = list(1, 2, 3);
+const y = list(4, 5, 6);
 
-// head(head(list(list(7))))
+// append(x, y)
+// == [1, [2, [3, [4, [5, [6, null]]]]]]
+// == list(1, 2, 3, 4, 5, 6)
 
-// head(tail(head(tail(head(tail(head(tail(head(tail(head(tail(
-//   list(1, list(2, list(3, list(4, list(5, list(6, 7))))))))))))))))))
+// pair(x, y)
+// == [[1, [2, [3, null]]], [4, [5, [6, null]]]]
+// == list(list(1, 2, 3), 4, 5, 6)
+
+// list(x, y)
+// == [[1, [2, [3, null]]], [4, [5, [6, null]]], null]
+// == list(list(1, 2, 3), list(4, 5, 6))
