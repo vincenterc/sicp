@@ -1,4 +1,4 @@
-import { identity, inc, multiply, plus, square } from './utils.js';
+import { identity, inc, times, plus, square } from './utils.js';
 
 function filtered_accumulate(combiner, null_value, term, a, next, b, filter) {
   return a > b
@@ -29,7 +29,7 @@ function product_relative_prime(n) {
   }
 
   return filtered_accumulate(
-    multiply,
+    times,
     1,
     identity,
     1,

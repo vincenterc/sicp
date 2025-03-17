@@ -1,5 +1,5 @@
 import { display } from 'sicp';
-import { identity, inc, multiply, plus } from './utils.js';
+import { identity, inc, times, plus } from './utils.js';
 
 function accumulate(combiner, null_value, term, a, next, b) {
   return a > b
@@ -15,7 +15,7 @@ function sum(term, a, next, b) {
 }
 
 function product(term, a, next, b) {
-  return accumulate(multiply, 1, term, a, next, b);
+  return accumulate(times, 1, term, a, next, b);
 }
 
 function sum_integers(a, b) {
@@ -45,7 +45,7 @@ function sum_iter(term, a, next, b) {
 }
 
 function product_iter(term, a, next, b) {
-  return accumulate_iter(multiply, 1, term, a, next, b);
+  return accumulate_iter(times, 1, term, a, next, b);
 }
 
 function sum_integers_iter(a, b) {

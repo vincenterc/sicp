@@ -18,7 +18,7 @@ function is_even(n) {
   return n % 2 === 0;
 }
 
-function multiply(x, y) {
+function times(x, y) {
   return x * y;
 }
 
@@ -30,4 +30,4 @@ function square(x) {
   return x * x;
 }
 
-export { average, cube, identity, inc, is_even, multiply, plus, square };
+export { average, cube, identity, inc, is_even, times, plus, square };
