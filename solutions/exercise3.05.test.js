@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { estimate_integral, unit_circle_test } from "./exercise3.05.js";
+import { estimate_integral, unit_circle_test } from "./exercise3.05";
 
 test("exercise 3.5", () => {
   expect(

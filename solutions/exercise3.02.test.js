@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { math_sqrt } from "sicp";
-import { make_monitored } from "./exercise3.02.js";
+import { make_monitored } from "./exercise3.02";
 
 test("exercise 3.2", () => {
   const s = make_monitored(math_sqrt);

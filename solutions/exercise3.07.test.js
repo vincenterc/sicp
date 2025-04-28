@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { make_account, make_joint } from "./exercise3.07.js";
+import { make_account, make_joint } from "./exercise3.07";
 
 test("exercise 3.7", () => {
   const peter_acc = make_account(100, "open sesame");

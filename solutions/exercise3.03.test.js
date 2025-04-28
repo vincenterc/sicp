@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { make_account } from "./exercise3.03.js";
+import { make_account } from "./exercise3.03";
 
 test("exercise 3.3", () => {
   const acc = make_account(100, "secret password");
