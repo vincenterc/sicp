@@ -1,5 +1,3 @@
-import { display } from "sicp";
-
 function make_f() {
   let inner = 0;
 
@@ -11,12 +9,4 @@ function make_f() {
   };
 }
 
-let f = make_f();
-
-display(f(0) + f(1));
-// 0
-
-f = make_f();
-
-display(f(1) + f(0));
-// 1
+export { make_f };

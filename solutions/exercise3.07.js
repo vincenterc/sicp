@@ -49,23 +49,4 @@ function make_account(balance, password) {
   return authenticate;
 }
 
-const peter_acc = make_account(100, "open sesame");
-const paul_acc = make_joint(peter_acc, "open sesame", "rosebud");
-
-display(peter_acc("open sesame")("withdraw")(10));
-// 90
-
-display(paul_acc("rosebud")("deposit")(20));
-// 110
-
-display(paul_acc("rosebud")("withdraw")(50));
-// 60
-
-display(peter_acc("open sesame")("deposit")(30));
-// 90
-
-display(peter_acc("wrong password"));
-// Incorrect password
-
-display(paul_acc("also wrong password"));
-// Incorrect password
+export { make_account, make_joint };
