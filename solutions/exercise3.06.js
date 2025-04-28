@@ -1,5 +1,6 @@
 function make_rand() {
   let x = random_init;
+
   return (arg) => {
     if (arg === "generate") {
       x = rand_update(x);
