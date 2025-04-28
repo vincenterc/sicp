@@ -1,5 +1,5 @@
 function make_account(balance, password) {
-  let wrong_password_counter = 0;
+  let incorrect_password_counter = 0;
 
   function withdraw(amount) {
     if (balance >= amount) {
@@ -17,13 +17,23 @@ function make_account(balance, password) {
     return balance;
   }
 
+  function handle_incorrect_password(amount) {
+    incorrect_password_counter = incorrect_password_counter + 1;
+
+    if (incorrect_password_counter > 7) {
+      return call_the_cops();
+    } else {
+      return "Incorrect password";
+    }
+  }
+
   function call_the_cops() {
     return "Call the cops!";
   }
 
   function dispatch(pw, m) {
     if (pw === password) {
-      wrong_password_counter = 0;
+      incorrect_password_counter = 0;
 
       return m === "withdraw"
         ? withdraw
@@ -31,15 +41,11 @@ function make_account(balance, password) {
         ? deposit
         : error(m, "unknown request -- make_account");
     } else {
-      wrong_password_counter = wrong_password_counter + 1;
-
-      if (wrong_password_counter > 7) {
-        return call_the_cops();
-      } else {
-        return (amount) => "Incorrect password";
-      }
+      return handle_incorrect_password;
     }
   }
 
   return dispatch;
 }
+
+export { make_account };

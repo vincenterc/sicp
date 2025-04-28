@@ -1,5 +1,3 @@
-import { display, math_sqrt } from "sicp";
-
 function make_monitored(f) {
   let counter = 0;
 
@@ -20,10 +18,4 @@ function make_monitored(f) {
   return mf;
 }
 
-const s = make_monitored(math_sqrt);
-
-display(s(100));
-// 10
-
-display(s("how many calls"));
-// 1
+export { make_monitored };
