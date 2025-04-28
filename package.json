@@ -1,7 +1,13 @@
 {
   "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
   "dependencies": {
     "sicp": "^1.1.4"
+  },
+  "devDependencies": {
+    "vitest": "^3.1.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
