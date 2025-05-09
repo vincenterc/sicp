@@ -2,7 +2,7 @@ import { expect, test } from "vitest";
 import { list, pair } from "sicp";
 import { count_pairs } from "./exercise3.17.js";
 
-test("exercise3.17", () => {
+test("exercise 3.17", () => {
   const z1 = list("a", "b", "c");
 
   expect(count_pairs(z1)).toBe(3);
