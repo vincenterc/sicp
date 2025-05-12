@@ -1,18 +1,10 @@
-import { head, is_null, is_pair, pair, set_tail, tail } from "sicp";
+import { is_null, is_pair, member, pair, set_tail, tail } from "sicp";
 
 function does_contain_cycle(l0) {
-  function is_visited(l, ps) {
-    return is_null(ps)
-      ? false
-      : head(ps) === l
-      ? true
-      : is_visited(l, tail(ps));
-  }
-
   function helper(l, visited) {
     return !is_pair(l)
       ? false
-      : is_visited(l, visited)
+      : !is_null(member(l, visited))
       ? true
       : helper(tail(l), pair(l, visited));
   }
