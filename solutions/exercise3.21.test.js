@@ -1,11 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
-
-import {
-  delete_queue,
-  insert_queue,
-  make_queue,
-  print_queue,
-} from "./exercise3.21.js";
+import { make_queue, insert_queue, delete_queue } from "./queue.js";
+import { print_queue } from "./exercise3.21.js";
 
 describe("exercise 3.21", () => {
   it("should output expected content", () => {
