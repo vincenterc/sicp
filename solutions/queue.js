@@ -51,4 +51,4 @@ function delete_queue(queue) {
   }
 }
 
-export { make_queue, front_queue, insert_queue, delete_queue };
+export { make_queue, is_empty_queue, front_queue, insert_queue, delete_queue };
