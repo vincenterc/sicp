@@ -1,5 +1,5 @@
-import { head, pair, stream_tail } from "sicp";
-import { add_streams, scale_stream } from "./stream.js";
+import { head, pair } from "sicp";
+import { add_streams, scale_stream, stream_tail } from "./stream.js";
 
 // s1 = head(s1) + tail(s1)
 // s2 = head(s2) + tail(S2)
@@ -11,7 +11,7 @@ import { add_streams, scale_stream } from "./stream.js";
 //         + head(s1) * tail(s2)
 //         + tail(s1) * (head(s2) + tail(s2))
 //         = head(s1) * tail(s2)
-//         + head(s1) * tail(s2) 
+//         + head(s1) * tail(s2)
 //         + tail(s1) * s2
 //         = head(s1) * head(s2)
 //         + tail(s1) * head(s2)

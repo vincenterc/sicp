@@ -1,4 +1,5 @@
-import { head, is_null, pair, stream_tail } from "sicp";
+import { head, is_null, pair } from "sicp";
+import { stream_tail } from "./stream.js";
 
 function stream_map_2(f, s1, s2) {
   return is_null(s1) || is_null(s2)

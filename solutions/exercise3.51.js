@@ -1,5 +1,10 @@
-import { display, stream_map, stream_ref } from "sicp";
-import { stream_enumerate_interval, stream_map_optimized } from "./stream.js";
+import { display } from "sicp";
+import {
+  stream_enumerate_interval,
+  stream_map,
+  stream_map_optimized,
+  stream_ref,
+} from "./stream.js";
 
 let x = stream_map(display, stream_enumerate_interval(0, 10));
 // ==

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { stream_ref } from "sicp";
+import { stream_ref } from "./stream.js";
 import { tangent_series } from "./exercise3.62.js";
 
 describe("exercise 3.62", () => {

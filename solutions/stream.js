@@ -1,18 +1,34 @@
-import {
-  display,
-  head,
-  integers_from,
-  is_null,
-  pair,
-  stream_for_each,
-  stream_map,
-  stream_tail,
-} from "sicp";
+import { display, head, integers_from, is_null, pair, tail } from "sicp";
 
-function stream_enumerate_interval(low, high) {
-  return low > high
+function stream_tail(stream) {
+  return tail(stream)();
+}
+
+function stream_ref(s, n) {
+  return n === 0 ? head(s) : stream_ref(stream_tail(s), n - 1);
+}
+
+function stream_map(f, s) {
+  return is_null(s)
     ? null
-    : pair(low, () => stream_enumerate_interval(low + 1, high));
+    : pair(f(head(s)), () => stream_map(f, stream_tail(s)));
+}
+
+function stream_filter(pred, stream) {
+  return is_null(stream)
+    ? null
+    : pred(head(stream))
+    ? pair(head(stream), () => stream_filter(pred, stream_tail(stream)))
+    : stream_filter(pred, stream_tail(stream));
+}
+
+function stream_for_each(fun, s) {
+  if (is_null(s)) {
+    return true;
+  } else {
+    fun(head(s));
+    return stream_for_each(fun, stream_tail(s));
+  }
 }
 
 function stream_map_2(f, s1, s2) {
@@ -43,11 +59,21 @@ function stream_filter_optimized(pred, stream) {
     : stream_filter_optimized(pred, stream_tail(stream));
 }
 
-function display_stream(s) {
-  return stream_for_each(display, s);
+function stream_enumerate_interval(low, high) {
+  return low > high
+    ? null
+    : pair(low, () => stream_enumerate_interval(low + 1, high));
+}
+
+function integers_starting_from(n) {
+  return pair(n, () => integers_starting_from(n + 1));
 }
 
 const integers = integers_from(1);
+
+function display_stream(s) {
+  return stream_for_each(display, s);
+}
 
 function add_streams(s1, s2) {
   return stream_map_2((x1, x2) => x1 + x2, s1, s2);
@@ -91,12 +117,18 @@ function memo(fun) {
 }
 
 export {
-  stream_enumerate_interval,
+  stream_tail,
+  stream_ref,
+  stream_map,
+  stream_filter,
+  stream_for_each,
   stream_map_2,
   stream_map_optimized,
   stream_filter_optimized,
-  display_stream,
+  stream_enumerate_interval,
+  integers_starting_from,
   integers,
+  display_stream,
   add_streams,
   mul_streams,
   scale_stream,

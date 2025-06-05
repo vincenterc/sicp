@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { stream_ref } from "sicp";
-import { add_streams } from "./stream.js";
+import { add_streams, stream_ref } from "./stream.js";
 import { cosine_series, sine_series } from "./exercise3.59.js";
 import { mul_series } from "./exercise3.60.js";
 

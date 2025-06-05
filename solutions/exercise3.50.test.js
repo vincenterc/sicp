@@ -1,8 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { stream_ref } from "sicp";
-import { stream_map_2, stream_map_2_optimized } from "./exercise3.50.js";
 import { plus, times } from "./utils.js";
-import { stream_enumerate_interval } from "./stream.js";
+import { stream_enumerate_interval, stream_ref } from "./stream.js";
+import { stream_map_2, stream_map_2_optimized } from "./exercise3.50.js";
 
 describe("exercise 3.50", () => {
   it("tests the function stream_map_2", () => {

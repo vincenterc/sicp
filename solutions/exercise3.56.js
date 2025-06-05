@@ -1,5 +1,5 @@
-import { head, is_null, pair, stream_tail } from "sicp";
-import { scale_stream } from "./stream";
+import { head, is_null, pair } from "sicp";
+import { scale_stream, stream_tail } from "./stream.js";
 
 const S = pair(1, () =>
   merge(scale_stream(S, 2), merge(scale_stream(S, 3), scale_stream(S, 5)))

@@ -1,5 +1,5 @@
-import { pair, stream_tail } from "sicp";
-import { mul_series, scale_stream } from "./stream.js";
+import { pair } from "sicp";
+import { mul_series, scale_stream, stream_tail } from "./stream.js";
 
 function invert_unit_series(s) {
   return pair(1, () =>

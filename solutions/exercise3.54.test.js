@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { stream_ref } from "sicp";
+import { stream_ref } from "./stream.js";
 import { factorials } from "./exercise3.54.js";
 
 describe("exercise 3.54", () => {

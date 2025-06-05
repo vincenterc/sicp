@@ -1,11 +1,14 @@
-import { display, stream_filter, stream_map, stream_ref } from "sicp";
+import { display } from "sicp";
+import { is_even } from "./utils.js";
 import {
   display_stream,
   stream_enumerate_interval,
+  stream_filter,
   stream_filter_optimized,
+  stream_map,
   stream_map_optimized,
+  stream_ref,
 } from "./stream.js";
-import { is_even } from "./utils.js";
 
 let sum = 0;
 

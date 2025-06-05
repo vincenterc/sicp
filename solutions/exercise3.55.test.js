@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { stream_ref } from "sicp";
-import { integers } from "./stream.js";
+import { integers, stream_ref } from "./stream.js";
 import { partial_sums } from "./exercise3.55.js";
 
 describe("exercise 3.55", () => {

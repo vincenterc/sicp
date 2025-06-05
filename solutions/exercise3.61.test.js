@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { integers, mul_series } from "./stream.js";
+import { integers, mul_series, stream_ref } from "./stream.js";
 import { invert_unit_series } from "./exercise3.61.js";
-import { stream_ref } from "sicp";
 
 describe("exercise 3.61", () => {
   it("tests the function invert_unit_series", () => {
