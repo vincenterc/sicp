@@ -54,6 +54,15 @@ function stream_map_2(f, s1, s2) {
       );
 }
 
+function stream_map_2_optimized(f, s1, s2) {
+  return is_null(s1) || is_null(s2)
+    ? null
+    : pair(
+        f(head(s1), head(s2)),
+        memo(() => stream_map_2_optimized(f, stream_tail(s1), stream_tail(s2)))
+      );
+}
+
 function stream_filter(pred, stream) {
   return is_null(stream)
     ? null
@@ -104,12 +113,20 @@ function add_streams(s1, s2) {
   return stream_map_2((x1, x2) => x1 + x2, s1, s2);
 }
 
+function add_streams_optimized(s1, s2) {
+  return stream_map_2_optimized((x1, x2) => x1 + x2, s1, s2);
+}
+
 function mul_streams(s1, s2) {
   return stream_map_2((x1, x2) => x1 * x2, s1, s2);
 }
 
 function scale_stream(stream, factor) {
   return stream_map((x) => x * factor, stream);
+}
+
+function scale_stream_optimized(stream, factor) {
+  return stream_map_optimized((x) => x * factor, stream);
 }
 
 function cycle_stream(stream) {
@@ -204,6 +221,7 @@ export {
   stream_map,
   stream_map_optimized,
   stream_map_2,
+  stream_map_2_optimized,
   stream_filter,
   stream_filter_optimized,
   stream_for_each,
@@ -213,8 +231,10 @@ export {
   ones,
   display_stream,
   add_streams,
+  add_streams_optimized,
   mul_streams,
   scale_stream,
+  scale_stream_optimized,
   cycle_stream,
   mul_series,
   invert_unit_series,
