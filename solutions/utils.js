@@ -30,4 +30,18 @@ function square(x) {
   return x * x;
 }
 
-export { average, cube, identity, inc, is_even, times, plus, square };
+function is_divisible(x, y) {
+  return x % y === 0;
+}
+
+export {
+  average,
+  cube,
+  identity,
+  inc,
+  is_even,
+  times,
+  plus,
+  square,
+  is_divisible,
+};
