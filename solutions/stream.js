@@ -37,21 +37,13 @@ function stream_map(f, s) {
     : pair(f(head(s)), () => stream_map(f, stream_tail(s)));
 }
 
-function stream_filter(pred, stream) {
-  return is_null(stream)
+function stream_map_optimized(f, s) {
+  return is_null(s)
     ? null
-    : pred(head(stream))
-    ? pair(head(stream), () => stream_filter(pred, stream_tail(stream)))
-    : stream_filter(pred, stream_tail(stream));
-}
-
-function stream_for_each(fun, s) {
-  if (is_null(s)) {
-    return true;
-  } else {
-    fun(head(s));
-    return stream_for_each(fun, stream_tail(s));
-  }
+    : pair(
+        f(head(s)),
+        memo(() => stream_map_optimized(f, stream_tail(s)))
+      );
 }
 
 function stream_map_2(f, s1, s2) {
@@ -62,13 +54,12 @@ function stream_map_2(f, s1, s2) {
       );
 }
 
-function stream_map_optimized(f, s) {
-  return is_null(s)
+function stream_filter(pred, stream) {
+  return is_null(stream)
     ? null
-    : pair(
-        f(head(s)),
-        memo(() => stream_map_optimized(f, stream_tail(s)))
-      );
+    : pred(head(stream))
+    ? pair(head(stream), () => stream_filter(pred, stream_tail(stream)))
+    : stream_filter(pred, stream_tail(stream));
 }
 
 function stream_filter_optimized(pred, stream) {
@@ -80,6 +71,15 @@ function stream_filter_optimized(pred, stream) {
         memo(() => stream_filter_optimized(pred, stream_tail(stream)))
       )
     : stream_filter_optimized(pred, stream_tail(stream));
+}
+
+function stream_for_each(fun, s) {
+  if (is_null(s)) {
+    return true;
+  } else {
+    fun(head(s));
+    return stream_for_each(fun, stream_tail(s));
+  }
 }
 
 function stream_enumerate_interval(low, high) {
@@ -202,11 +202,11 @@ export {
   stream_ref,
   stream_take,
   stream_map,
-  stream_filter,
-  stream_for_each,
-  stream_map_2,
   stream_map_optimized,
+  stream_map_2,
+  stream_filter,
   stream_filter_optimized,
+  stream_for_each,
   stream_enumerate_interval,
   integers_starting_from,
   integers,
