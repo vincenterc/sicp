@@ -1,11 +1,3 @@
-function average(x, y) {
-  return (x + y) / 2;
-}
-
-function cube(x) {
-  return x * x * x;
-}
-
 function identity(x) {
   return x;
 }
@@ -14,20 +6,28 @@ function inc(k) {
   return k + 1;
 }
 
-function is_even(n) {
-  return n % 2 === 0;
+function plus(x, y) {
+  return x + y;
 }
 
 function times(x, y) {
   return x * y;
 }
 
-function plus(x, y) {
-  return x + y;
+function average(x, y) {
+  return (x + y) / 2;
 }
 
 function square(x) {
   return x * x;
+}
+
+function cube(x) {
+  return x * x * x;
+}
+
+function is_even(n) {
+  return n % 2 === 0;
 }
 
 function is_divisible(x, y) {
@@ -35,13 +35,13 @@ function is_divisible(x, y) {
 }
 
 export {
-  average,
-  cube,
   identity,
   inc,
-  is_even,
-  times,
   plus,
+  times,
+  average,
   square,
+  cube,
+  is_even,
   is_divisible,
 };
