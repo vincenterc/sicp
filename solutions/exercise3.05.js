@@ -42,6 +42,7 @@ function unit_circle_test(x, y) {
   return square(x) + square(y) <= 1;
 }
 
-// display(estimate_integral(unit_circle_test, 1, 1, -1, -1, 8000));
+display(estimate_integral(unit_circle_test, 1, 1, -1, -1, 8000));
+// 3.1445
 
 export { estimate_integral, unit_circle_test };
