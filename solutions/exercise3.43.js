@@ -1,9 +1,9 @@
 // The balances in three accounts start out as $10, $20, and $30.
 // Exchanging the balances in any two accounts preserves the values of
-// those balance. For example, if account a1 has a balances of $10
-// and account a2 has a balance of $20. Exchanging their balances
+// those balances. For example, if account a1 has a balance of $10
+// and account a2 has a balance of $20, exchanging their balances
 // results in account a1 having $20 and account a2 having $10.
-// The values $10 and $20 are preserved. Therefore,  if the threads
+// The values $10 and $20 are preserved. Therefore, if the threads
 // are run sequentially, after any number of concurrent exchanges,
 // the account balances will still be $10, $20, and $30 but in some order.
 //
