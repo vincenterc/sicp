@@ -29,7 +29,47 @@ function ripple_carry_adder(ak, bk, sk, c) {
   return "ok";
 }
 
-// TODO estimate ripple-carry adder delay
+// half_adder_delay_s
+//   = max(or_gate_delay, and_gate_delay + inverter_delay)
+//   + and_gate_delay
+// half_adder_delay_c = and_gate_delay
+
+// full_adder_delay_s
+//   = half_adder_delay_s + half_adder_delay_s
+//   = 2 * max(or_gate_delay, and_gate_delay + inverter_delay)
+//   + 2 * and_gate_delay
+// full_adder_delay_c
+//   = half_adder_delay_s + half_adder_delay_c + or_gate_delay
+//   = max(or_gate_delay, and_gate_delay + inverter_delay)
+//   + and_gate_delay + and_gate_delay + or_gate_delay
+//   = max(or_gate_delay, and_gate_delay + inverter_delay)
+//   + 2 * and_gate_delay + or_gate_delay
+
+// If or_gate_delay > and_gate_delay + inverter_delay,
+// full_adder_delay_s = 2 * or_gate_delay + 2 * and_gate_delay
+// and
+// full_adder_delay_c = or_gate_delay + 2 * and_gate_delay * or_gate_delay
+//                    = 2 * or_gate_delay + 2 * and_gate_delay
+// On the other hand, if or_gate_delay < and_gate_delay + inverter_delay,
+// full_adder_delay_s = 2 * and_gate_delay + 2 * inverter_delay
+//                    + 2 * and_gate_delay
+//                    = 4 * and_gate_delay + 2 * inverter_delay
+// and
+// full_adder_delay_c = and_gate_delay + inverter_delay
+//                    + 2 * and_gate_delay + or_gate_delay
+//                    = 3 * and_gate_delay + inverter_delay + or_gate_delay
+// Therefore, full_adder_delay_s >= full_adder_delay_c.
+
+// ripple_carry_adder_delay
+//   = (n - 1) * full_adder_delay_c
+//   + max(full_adder_delay_s, full_adder_delay_c)
+//   = (n - 1) * full_adder_c + full_adder_delay_s
+//   = (n - 1) * max(or_gate_delay, and_gate_delay + inverter_delay)
+//   + 2 * (n - 1) * and_gate_delay + (n - 1) * or_gate_delay
+//   + 2 * max(or_gate_delay, and_gate_delay + inverter_delay)
+//   + 2 * and_gate_delay
+//   = (n + 1) * max(or_gate_delay, and_gate_delay + inverter_delay)
+//   + 2 * n * and_gate_delay + (n - 1) * or_gate_delay
 
 function full_adder(a, b, c_in, sum, c_out) {
   const s = make_wire();
@@ -259,4 +299,4 @@ function first_agenda_item(agenda) {
   }
 }
 
-export { make_wire, get_signal, set_signal, ripple_carry_adder, propagate };
+export { make_wire, set_signal, ripple_carry_adder, propagate };

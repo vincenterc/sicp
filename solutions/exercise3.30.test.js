@@ -106,7 +106,7 @@ describe("exercise 3.30", () => {
     expect(c("get_signal")).toBe(1);
   });
 
-  it("the ripper-carry adder test: 011 + 0111", () => {
+  it("the ripper-carry adder test: 0111 + 0111", () => {
     const a1 = make_wire();
     const a2 = make_wire();
     const a3 = make_wire();
