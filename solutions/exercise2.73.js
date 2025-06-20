@@ -1,3 +1,6 @@
+import { head, is_number, is_string, list, tail } from "sicp";
+import { make_2d_table } from "./table.js";
+
 // a.
 // Numbers and variables do not have obvious keys as type tags,
 // so we can not assimilate is_number and is_same_variable into
@@ -13,10 +16,6 @@ function install_sum_package() {
     return head(tail(s));
   }
 
-  function make_sum(a1, a2) {
-    return list("+", a1, a2);
-  }
-
   function deriv_sum(args, variable) {
     return make_sum(
       deriv(addend(args), variable),
@@ -29,21 +28,13 @@ function install_sum_package() {
   return "done";
 }
 
-function install_sum_package() {
+function install_product_package() {
   function multiplier(s) {
     return head(s);
   }
 
   function multiplicand(s) {
     return head(tail(s));
-  }
-
-  function make_sum(a1, a2) {
-    return list("+", a1, a2);
-  }
-
-  function make_product(m1, m2) {
-    return list("*", m1, m2);
   }
 
   function deriv_product(args, variable) {
@@ -72,15 +63,11 @@ function install_exp_package() {
     return list("**", b, e);
   }
 
-  function make_product(m1, m2) {
-    return list("*", m1, m2);
-  }
-
   function deriv_exp(args, variable) {
     return make_product(
       make_product(
         exponent(args),
-        make_exp(base(args), make_sum(exponent(args) - 1))
+        make_exp(base(args), make_sum(exponent(args), -1))
       ),
       deriv(base(args), variable)
     );
@@ -96,3 +83,47 @@ function install_exp_package() {
 // put("+", "deriv", deriv_sum);
 // put("*", "deriv", deriv_product);
 // put("**", "deriv", deriv_exp);
+
+const table = make_2d_table();
+const get = table("lookup");
+const put = table("insert");
+
+install_sum_package();
+install_product_package();
+install_exp_package();
+
+function deriv(exp, variable) {
+  return is_number(exp)
+    ? 0
+    : is_variable(exp)
+    ? is_same_variable(exp, variable)
+      ? 1
+      : 0
+    : get("deriv", operator(exp))(operands(exp), variable);
+}
+
+function operator(exp) {
+  return head(exp);
+}
+
+function operands(exp) {
+  return tail(exp);
+}
+
+function is_variable(x) {
+  return is_string(x);
+}
+
+function is_same_variable(v1, v2) {
+  return is_variable(v1) && is_variable(v2) && v1 === v2;
+}
+
+function make_sum(a1, a2) {
+  return list("+", a1, a2);
+}
+
+function make_product(m1, m2) {
+  return list("*", m1, m2);
+}
+
+export { deriv };
