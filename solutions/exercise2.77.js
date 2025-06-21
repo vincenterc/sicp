@@ -14,6 +14,5 @@
 // z_without_complex_rectangular_tag
 // == pair(3, 4)
 //
-// apply_generic is invoked twice. The first time, the magnitude function
-// in the complex package is dispatched; the second time, the magnitude
-// function in the rectangle package is dispatched.
+// apply_generic is invoked twice, and each time the magnitude function
+// in the program environment is dispatched.
