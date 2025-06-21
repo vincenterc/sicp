@@ -1,11 +1,11 @@
-import { head, pair } from "sicp";
+import { display, head, pair } from "sicp";
 import {
-  display_stream_n,
   memo,
   partial_sums,
   stream_map,
   stream_ref,
   stream_tail,
+  stream_take,
 } from "./stream.js";
 import { square } from "./math.js";
 
@@ -15,7 +15,7 @@ function ln2_summands(n) {
 
 const ln2_stream = partial_sums(ln2_summands(1));
 
-display_stream_n(ln2_stream, 8);
+display(stream_take(ln2_stream, 8));
 // 1
 // 0.5
 // 0.8333333333333333
@@ -38,7 +38,7 @@ function euler_transform(s) {
   );
 }
 
-display_stream_n(euler_transform(ln2_stream), 8);
+display(stream_take(euler_transform(ln2_stream), 8));
 // 0.7
 // 0.6904761904761905
 // 0.6944444444444444
@@ -59,7 +59,7 @@ function accelerated_sequence(transform, s) {
   return stream_map(head, make_tableau(transform, s));
 }
 
-display_stream_n(accelerated_sequence(euler_transform, ln2_stream), 8);
+display(stream_take(accelerated_sequence(euler_transform, ln2_stream), 8));
 // 1
 // 0.7
 // 0.6932773109243697
