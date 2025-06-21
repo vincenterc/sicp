@@ -19,7 +19,7 @@ function install_sum_package() {
   function deriv_sum(args, variable) {
     return make_sum(
       deriv(addend(args), variable),
-      deriv(augend(args), variable)
+      deriv(augend(args), variable),
     );
   }
 
@@ -40,7 +40,7 @@ function install_product_package() {
   function deriv_product(args, variable) {
     return make_sum(
       make_product(multiplier(args), deriv(multiplicand(args), variable)),
-      make_product(deriv(multiplier(args), variable), multiplicand(args))
+      make_product(deriv(multiplier(args), variable), multiplicand(args)),
     );
   }
 
@@ -67,9 +67,9 @@ function install_exp_package() {
     return make_product(
       make_product(
         exponent(args),
-        make_exp(base(args), make_sum(exponent(args), -1))
+        make_exp(base(args), make_sum(exponent(args), -1)),
       ),
-      deriv(base(args), variable)
+      deriv(base(args), variable),
     );
   }
 
@@ -96,10 +96,10 @@ function deriv(exp, variable) {
   return is_number(exp)
     ? 0
     : is_variable(exp)
-    ? is_same_variable(exp, variable)
-      ? 1
-      : 0
-    : get("deriv", operator(exp))(operands(exp), variable);
+      ? is_same_variable(exp, variable)
+        ? 1
+        : 0
+      : get("deriv", operator(exp))(operands(exp), variable);
 }
 
 function operator(exp) {

@@ -4,7 +4,7 @@ function tree_to_list_2(tree) {
       ? result_list
       : copy_to_list(
           left_branch(tree),
-          pair(entry(tree), copy_to_list(right_branch(tree), result_list))
+          pair(entry(tree), copy_to_list(right_branch(tree), result_list)),
         );
   }
   return copy_to_list(tree, null);
@@ -42,8 +42,8 @@ function union_set(set1, set2) {
     return x1 === x2
       ? pair(x1, union_set(tail(set1), tail(set2)))
       : x1 < x2
-      ? pair(x1, union_set(tail(set1), set2))
-      : pair(x2, union_set(set1, tail(set2)));
+        ? pair(x1, union_set(tail(set1), set2))
+        : pair(x2, union_set(set1, tail(set2)));
   }
 }
 
@@ -56,9 +56,9 @@ function intersection_set(set1, set2) {
     return x1 === x2
       ? pair(x1, intersection_set(tail(set1), tail(set2)))
       : x1 < x2
-      ? intersection_set(tail(set1), set2)
-      : // 𝚡𝟸 < 𝚡𝟷
-        intersection_set(set1, tail(set2));
+        ? intersection_set(tail(set1), set2)
+        : // 𝚡𝟸 < 𝚡𝟷
+          intersection_set(set1, tail(set2));
   }
 }
 

@@ -38,8 +38,8 @@ function get_type_level(type) {
     return is_null(tower)
       ? undefined
       : type === head(tower)
-      ? level
-      : iter(tail(tower), level + 1);
+        ? level
+        : iter(tail(tower), level + 1);
   }
 
   return iter(tower_of_types, 0);
@@ -63,10 +63,10 @@ function apply_generic(op, args) {
       return is_undefined(level_of_type1) || is_undefined(level_of_type2)
         ? error(list(op, type_tags), "no method for these types")
         : level_of_type1 > level_of_type2
-        ? apply_generic(op, list(a1, raise(a2)))
-        : level_of_type1 < level_of_type2
-        ? apply_generic(op, list(raise(a1), a2))
-        : error(list(op, type_tags), "no method for these types");
+          ? apply_generic(op, list(a1, raise(a2)))
+          : level_of_type1 < level_of_type2
+            ? apply_generic(op, list(raise(a1), a2))
+            : error(list(op, type_tags), "no method for these types");
     } else {
       return error(list(op, type_tags), "no method for these types");
     }

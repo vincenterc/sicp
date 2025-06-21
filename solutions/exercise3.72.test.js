@@ -14,13 +14,13 @@ describe("exercise 3.72", () => {
     const n0_forth = head(tail(tail(tail(n0))));
 
     expect(square(head(n0_first)) + square(head(tail(n0_first)))).toBe(
-      n0_forth
+      n0_forth,
     );
     expect(square(head(n0_second)) + square(head(tail(n0_second)))).toBe(
-      n0_forth
+      n0_forth,
     );
     expect(square(head(n0_third)) + square(head(tail(n0_third)))).toBe(
-      n0_forth
+      n0_forth,
     );
   });
 });

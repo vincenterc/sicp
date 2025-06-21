@@ -193,8 +193,8 @@ function probe(name, connector) {
     return request === "I have a value."
       ? process_new_value()
       : request === "I lost my value."
-      ? process_forget_value()
-      : error(request, "unknown request -- probe");
+        ? process_forget_value()
+        : error(request, "unknown request -- probe");
   }
   connect(connector, me);
   return me;

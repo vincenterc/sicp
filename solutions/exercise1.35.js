@@ -1,4 +1,4 @@
-import { display, math_abs } from 'sicp';
+import { display, math_abs } from "sicp";
 
 const tolerance = 0.00001;
 

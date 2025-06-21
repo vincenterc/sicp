@@ -1,5 +1,5 @@
-import { display } from 'sicp';
-import { is_even, square } from './math.js';
+import { display } from "sicp";
+import { is_even, square } from "./math.js";
 
 function carmichael(n) {
   return fermat_test(n - 1, n);
@@ -13,8 +13,8 @@ function expmod(base, exp, m) {
   return exp === 0
     ? 1
     : is_even(exp)
-    ? square(expmod(base, exp / 2, m)) % m
-    : (base * expmod(base, exp - 1, m)) % m;
+      ? square(expmod(base, exp / 2, m)) % m
+      : (base * expmod(base, exp - 1, m)) % m;
 }
 
 display(carmichael(561));

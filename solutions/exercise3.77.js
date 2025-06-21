@@ -10,7 +10,7 @@ function integral(delayed_integrand, initial_value, dt) {
       : integral(
           () => stream_tail(integrand),
           dt * head(integrand) + initial_value,
-          dt
+          dt,
         );
   });
 }

@@ -31,7 +31,7 @@ function make_code_tree(left, right) {
     left,
     right,
     append(symbols(left), symbols(right)),
-    weight(left) + weight(right)
+    weight(left) + weight(right),
   );
 }
 
@@ -47,8 +47,8 @@ function adjoin_set(x, set) {
   return is_null(set)
     ? list(x)
     : weight(x) < weight(head(set))
-    ? pair(x, set)
-    : pair(head(set), adjoin_set(x, tail(set)));
+      ? pair(x, set)
+      : pair(head(set), adjoin_set(x, tail(set)));
 }
 
 function make_leaf_set(pairs) {
@@ -59,9 +59,9 @@ function make_leaf_set(pairs) {
     return adjoin_set(
       make_leaf(
         head(first_pair), // symbol
-        head(tail(first_pair))
+        head(tail(first_pair)),
       ), // frequency
-      make_leaf_set(tail(pairs))
+      make_leaf_set(tail(pairs)),
     );
   }
 }
@@ -76,8 +76,8 @@ function successive_merge(leaves) {
     : successive_merge(
         adjoin_set(
           make_code_tree(head(leaves), head(tail(leaves))),
-          tail(tail(leaves))
-        )
+          tail(tail(leaves)),
+        ),
       );
 }
 
@@ -85,7 +85,7 @@ const sample_pairs = list(
   list("A", 4),
   list("B", 2),
   list("C", 1),
-  list("D", 1)
+  list("D", 1),
 );
 
 display_list(generate_huffman_tree(sample_pairs));

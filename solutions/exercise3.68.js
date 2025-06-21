@@ -1,7 +1,7 @@
 function pairs(s, t) {
   return interleave(
     stream_map((x) => list(head(s), x), t),
-    pairs(stream_tail(s), stream_tail(t))
+    pairs(stream_tail(s), stream_tail(t)),
   );
 }
 // When pairs is called, it invokes interleave, passing the result

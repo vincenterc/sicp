@@ -5,8 +5,8 @@ function does_contain_cycle(l0) {
     return !is_pair(l)
       ? false
       : !is_null(member(l, visited))
-      ? true
-      : helper(tail(l), pair(l, visited));
+        ? true
+        : helper(tail(l), pair(l, visited));
   }
 
   return helper(l0, null);

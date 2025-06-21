@@ -1,4 +1,4 @@
-import { display, head, is_number, is_pair, list, tail } from 'sicp';
+import { display, head, is_number, is_pair, list, tail } from "sicp";
 
 function make_mobile(left, right) {
   return list(left, right);

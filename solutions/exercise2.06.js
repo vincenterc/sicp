@@ -1,5 +1,5 @@
-import { display } from 'sicp';
-import { inc } from './utils.js';
+import { display } from "sicp";
+import { inc } from "./utils.js";
 
 const zero = (f) => (x) => x;
 

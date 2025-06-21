@@ -4,8 +4,8 @@ function is_element_of_set(x, set) {
   return is_null(set)
     ? false
     : equal(x, head(set))
-    ? true
-    : is_element_of_set(x, tail(set));
+      ? true
+      : is_element_of_set(x, tail(set));
 }
 // O(n)
 
@@ -23,8 +23,8 @@ function intersection(set1, set2) {
   return is_null(set1)
     ? null
     : is_element_of_set(head(set1), set2)
-    ? pair(head(set1), intersection(tail(set1), set2))
-    : intersection(tail(set1), set2);
+      ? pair(head(set1), intersection(tail(set1), set2))
+      : intersection(tail(set1), set2);
 }
 // O(n^2)
 

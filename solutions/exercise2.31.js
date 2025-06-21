@@ -7,15 +7,15 @@ import {
   map,
   pair,
   tail,
-} from 'sicp';
-import { square } from './math.js';
+} from "sicp";
+import { square } from "./math.js";
 
 function tree_map(f, tree) {
   return is_null(tree)
     ? null
     : !is_pair(tree)
-    ? f(tree)
-    : pair(tree_map(f, head(tree)), tree_map(f, tail(tree)));
+      ? f(tree)
+      : pair(tree_map(f, head(tree)), tree_map(f, tail(tree)));
 }
 
 function square_tree(tree) {

@@ -6,10 +6,10 @@ function pairs(s, t) {
     interleave(
       interleave(
         stream_map((x) => list(head(s), x), stream_tail(t)),
-        stream_map((x) => list(x, head(t)), stream_tail(s))
+        stream_map((x) => list(x, head(t)), stream_tail(s)),
       ),
-      pairs(stream_tail(s), stream_tail(t))
-    )
+      pairs(stream_tail(s), stream_tail(t)),
+    ),
   );
 }
 

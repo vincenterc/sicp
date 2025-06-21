@@ -1,4 +1,4 @@
-import { display } from 'sicp';
+import { display } from "sicp";
 
 function pair(x, y) {
   return 2 ** x * 3 ** y;

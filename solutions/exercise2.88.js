@@ -4,12 +4,12 @@ put("negate", list("javascript_number"), (x) => tag(-x));
 // to be included in the rational package
 put(
   "negate",
-  list("rational", (x) => tag(make_rat(-numer(x), denom(x))))
+  list("rational", (x) => tag(make_rat(-numer(x), denom(x)))),
 );
 
 // to be included in the complex package
 put("negate", list("complex"), (x) =>
-  tag(make_from_real_imag(-real_part(x), -imag_part(x)))
+  tag(make_from_real_imag(-real_part(x), -imag_part(x))),
 );
 
 function negate(x) {

@@ -1,4 +1,4 @@
-import { display_list, is_null, list, tail } from 'sicp';
+import { display_list, is_null, list, tail } from "sicp";
 
 function last_pair(items) {
   return is_null(tail(items)) ? items : last_pair(tail(items));

@@ -118,10 +118,10 @@ function logical_and(s1, s2) {
   return s1 === 1 && s2 === 1
     ? 1
     : s1 === 0 || s1 === 1
-    ? s2 === 0 || s2 === 1
-      ? 0
-      : error(s2, "invalid signal")
-    : error(s1, "invalid signal");
+      ? s2 === 0 || s2 === 1
+        ? 0
+        : error(s2, "invalid signal")
+      : error(s1, "invalid signal");
 }
 
 function or_gate(a1, a2, output) {
@@ -138,10 +138,10 @@ function logical_or(s1, s2) {
   return s1 === 0 && s2 === 0
     ? 0
     : s1 === 0 || s1 === 1
-    ? s2 === 0 || s2 === 1
-      ? 1
-      : error(s2, "invalid signal")
-    : error(s1, "invalid signal");
+      ? s2 === 0 || s2 === 1
+        ? 1
+        : error(s2, "invalid signal")
+      : error(s1, "invalid signal");
 }
 
 function make_wire() {
@@ -163,10 +163,10 @@ function make_wire() {
     return m === "get_signal"
       ? signal_value
       : m === "set_signal"
-      ? set_my_signal
-      : m === "add_action"
-      ? accept_action_function
-      : error(m, "unknown operation -- wire");
+        ? set_my_signal
+        : m === "add_action"
+          ? accept_action_function
+          : error(m, "unknown operation -- wire");
   }
   return dispatch;
 }

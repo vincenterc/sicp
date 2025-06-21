@@ -1,14 +1,14 @@
-import { display, get_time } from 'sicp';
-import { is_even, square } from './math.js';
+import { display, get_time } from "sicp";
+import { is_even, square } from "./math.js";
 
 function search_for_primes(n, count) {
   return count === 0
     ? true
     : is_even(n)
-    ? search_for_primes(n + 1, count)
-    : timed_prime_test(n)
-    ? search_for_primes(n + 2, count - 1)
-    : search_for_primes(n + 2, count);
+      ? search_for_primes(n + 1, count)
+      : timed_prime_test(n)
+        ? search_for_primes(n + 2, count - 1)
+        : search_for_primes(n + 2, count);
 }
 
 function timed_prime_test(n) {
@@ -21,7 +21,7 @@ function start_prime_test(n, start_time) {
 }
 
 function report_prime(elapsed_time) {
-  display(' *** ');
+  display(" *** ");
   display(elapsed_time);
   return true;
 }
@@ -38,8 +38,8 @@ function find_divisor(n, test_divisor) {
   return square(test_divisor) > n
     ? n
     : divides(test_divisor, n)
-    ? test_divisor
-    : find_divisor(n, test_divisor + 1);
+      ? test_divisor
+      : find_divisor(n, test_divisor + 1);
 }
 
 function divides(a, b) {

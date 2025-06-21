@@ -1,4 +1,4 @@
-import { head, pair, tail } from 'sicp';
+import { head, pair, tail } from "sicp";
 
 function make_vect(x, y) {
   return pair(x, y);

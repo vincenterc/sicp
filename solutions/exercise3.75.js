@@ -10,7 +10,7 @@ function make_zero_crossings(input_stream, last_value, last_avpt) {
   const avpt = (value + last_value) / 2;
 
   return pair(sign_change_detector(avpt, last_avpt), () =>
-    make_zero_crossings(stream_tail(input_stream), value, avpt)
+    make_zero_crossings(stream_tail(input_stream), value, avpt),
   );
 }
 
@@ -18,8 +18,8 @@ function sign_change_detector(value, last_value) {
   return value >= 0 && last_value < 0
     ? 1
     : value < 0 && last_value >= 0
-    ? -1
-    : 0;
+      ? -1
+      : 0;
 }
 
 export { zero_crossings };

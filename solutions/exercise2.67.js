@@ -31,7 +31,7 @@ function make_code_tree(left, right) {
     left,
     right,
     append(symbols(left), symbols(right)),
-    weight(left) + weight(right)
+    weight(left) + weight(right),
   );
 }
 
@@ -69,16 +69,16 @@ function choose_branch(bit, branch) {
   return bit === 0
     ? left_branch(branch)
     : bit === 1
-    ? right_branch(branch)
-    : error(bit, "bad bit -- choose_branch");
+      ? right_branch(branch)
+      : error(bit, "bad bit -- choose_branch");
 }
 
 const sample_tree = make_code_tree(
   make_leaf("A", 4),
   make_code_tree(
     make_leaf("B", 2),
-    make_code_tree(make_leaf("D", 1), make_leaf("C", 1))
-  )
+    make_code_tree(make_leaf("D", 1), make_leaf("C", 1)),
+  ),
 );
 const sample_message = list(0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0);
 

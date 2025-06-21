@@ -7,14 +7,14 @@ function estimate_integral(
   upper_y,
   lower_x,
   lower_y,
-  n_trials
+  n_trials,
 ) {
   const area_rect = (upper_x - lower_x) * (upper_y - lower_y);
 
   function experiment() {
     return predicate(
       random_in_range(lower_x, upper_x),
-      random_in_range(lower_y, upper_y)
+      random_in_range(lower_y, upper_y),
     );
   }
 
@@ -26,8 +26,8 @@ function monte_carlo(trials, experiment) {
     return trials_remaining === 0
       ? trials_passed / trials
       : experiment()
-      ? iter(trials_remaining - 1, trials_passed + 1)
-      : iter(trials_remaining - 1, trials_passed);
+        ? iter(trials_remaining - 1, trials_passed + 1)
+        : iter(trials_remaining - 1, trials_passed);
   }
 
   return iter(trials, 0);

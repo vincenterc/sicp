@@ -17,9 +17,9 @@ describe("exercise 2.74", () => {
         list(
           pair("name", "Emily"),
           pair("salary", 250),
-          pair("address", "Setagaya, Tokyo")
-        )
-      )
+          pair("address", "Setagaya, Tokyo"),
+        ),
+      ),
     );
     expect(get_record(marketing, "Emma")).toBe(undefined);
     expect(get_record(sales, "Emma")).toEqual(
@@ -27,9 +27,9 @@ describe("exercise 2.74", () => {
         "sales",
         pair(
           "Emma",
-          list(pair("salary", 260), pair("address", "Shibuya, Tokyo"))
-        )
-      )
+          list(pair("salary", 260), pair("address", "Shibuya, Tokyo")),
+        ),
+      ),
     );
   });
 
@@ -46,9 +46,9 @@ describe("exercise 2.74", () => {
         list(
           pair("name", "James"),
           pair("salary", 200),
-          pair("address", "Shinjuku, Tokyo")
-        )
-      )
+          pair("address", "Shinjuku, Tokyo"),
+        ),
+      ),
     );
     expect(find_employee_record("David", files)).toBe(undefined);
     expect(find_employee_record("Sarah", files)).toEqual(
@@ -56,9 +56,9 @@ describe("exercise 2.74", () => {
         "sales",
         pair(
           "Sarah",
-          list(pair("salary", 220), pair("address", "Suginami, Tokyo"))
-        )
-      )
+          list(pair("salary", 220), pair("address", "Suginami, Tokyo")),
+        ),
+      ),
     );
   });
 });

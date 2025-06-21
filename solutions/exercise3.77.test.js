@@ -7,8 +7,8 @@ describe("exercise 3.77", () => {
     expect(
       stream_ref(
         solve((y) => y, 1, 0.001),
-        1000
-      )
+        1000,
+      ),
     ).toBeCloseTo(2.716924, 6);
   });
 });

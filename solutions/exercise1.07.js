@@ -1,5 +1,5 @@
-import { display, math_abs } from 'sicp';
-import { average, square } from './math.js';
+import { display, math_abs } from "sicp";
+import { average, square } from "./math.js";
 
 function sqrt(x) {
   return sqrt_iter(1, x);

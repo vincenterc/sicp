@@ -1,12 +1,14 @@
 {
   "type": "module",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "format": "prettier . --write"
   },
   "dependencies": {
     "sicp": "^1.1.4"
   },
   "devDependencies": {
+    "prettier": "3.5.3",
     "vitest": "^3.1.2"
   },
   "pnpm": {

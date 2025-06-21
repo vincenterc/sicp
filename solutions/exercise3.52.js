@@ -81,7 +81,7 @@ function accum_opt(x) {
 
 const seq_opt = stream_map_optimized(
   accum_opt,
-  stream_enumerate_interval(1, 20)
+  stream_enumerate_interval(1, 20),
 );
 // sum_opt == 1
 

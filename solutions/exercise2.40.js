@@ -1,4 +1,4 @@
-import { accumulate, append, display_list, list, map, pair } from 'sicp';
+import { accumulate, append, display_list, list, map, pair } from "sicp";
 
 function enumerate_interval(low, high) {
   return low > high ? null : pair(low, enumerate_interval(low + 1, high));

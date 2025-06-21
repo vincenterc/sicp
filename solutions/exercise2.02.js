@@ -1,5 +1,5 @@
-import { display, head, pair, stringify, tail } from 'sicp';
-import { average } from './math.js';
+import { display, head, pair, stringify, tail } from "sicp";
+import { average } from "./math.js";
 
 function make_segment(start, end) {
   return pair(start, end);
@@ -37,7 +37,7 @@ function midpoint_segment(s) {
 
 function print_point(p) {
   return display(
-    '(' + stringify(x_point(p)) + ', ' + stringify(y_point(p)) + ')',
+    "(" + stringify(x_point(p)) + ", " + stringify(y_point(p)) + ")",
   );
 }
 

@@ -1,4 +1,4 @@
-import { display, math_abs, math_sign, pair } from 'sicp';
+import { display, math_abs, math_sign, pair } from "sicp";
 
 function gcd(a, b) {
   return b === 0 ? a : gcd(b, a % b);

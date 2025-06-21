@@ -13,13 +13,13 @@ describe("exercise 3.70", () => {
     const stream_a_24 = stream_ref(stream_a, 24);
 
     expect(head(stream_a_1) + head(tail(stream_a_1))).toBeLessThanOrEqual(
-      head(stream_a_2) + head(tail(stream_a_2))
+      head(stream_a_2) + head(tail(stream_a_2)),
     );
     expect(head(stream_a_17) + head(tail(stream_a_17))).toBeLessThanOrEqual(
-      head(stream_a_18) + head(tail(stream_a_18))
+      head(stream_a_18) + head(tail(stream_a_18)),
     );
     expect(head(stream_a_23) + head(tail(stream_a_23))).toBeLessThanOrEqual(
-      head(stream_a_24) + head(tail(stream_a_24))
+      head(stream_a_24) + head(tail(stream_a_24)),
     );
   });
 
@@ -50,9 +50,9 @@ describe("exercise 3.70", () => {
     expect(stream_b_7_j % 3 === 0).toBe(false);
     expect(stream_b_7_j % 5 === 0).toBe(false);
     expect(
-      2 * stream_b_6_i + 3 * stream_b_6_j + 5 * stream_b_6_i * stream_b_6_j
+      2 * stream_b_6_i + 3 * stream_b_6_j + 5 * stream_b_6_i * stream_b_6_j,
     ).toBeLessThanOrEqual(
-      2 * stream_b_7_i + 3 * stream_b_7_j + 5 * stream_b_7_i * stream_b_7_j
+      2 * stream_b_7_i + 3 * stream_b_7_j + 5 * stream_b_7_i * stream_b_7_j,
     );
 
     expect(stream_b_33_i % 2 === 0).toBe(false);
@@ -68,9 +68,9 @@ describe("exercise 3.70", () => {
     expect(stream_b_34_j % 3 === 0).toBe(false);
     expect(stream_b_34_j % 5 === 0).toBe(false);
     expect(
-      2 * stream_b_33_i + 3 * stream_b_33_j + 5 * stream_b_33_i * stream_b_33_j
+      2 * stream_b_33_i + 3 * stream_b_33_j + 5 * stream_b_33_i * stream_b_33_j,
     ).toBeLessThanOrEqual(
-      2 * stream_b_34_i + 3 * stream_b_34_j + 5 * stream_b_34_i * stream_b_34_j
+      2 * stream_b_34_i + 3 * stream_b_34_j + 5 * stream_b_34_i * stream_b_34_j,
     );
   });
 });

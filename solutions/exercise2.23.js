@@ -1,4 +1,4 @@
-import { display, head, is_null, list, tail } from 'sicp';
+import { display, head, is_null, list, tail } from "sicp";
 
 function for_each(fun, items) {
   if (is_null(items)) {

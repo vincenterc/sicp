@@ -6,7 +6,7 @@ function mul_streams(s1, s2) {
 }
 
 const factorials = pair(1, () =>
-  mul_streams(factorials, integers_starting_from(2))
+  mul_streams(factorials, integers_starting_from(2)),
 );
 
 export { factorials };

@@ -24,20 +24,20 @@ function weighted_pairs(s, t, weight) {
     merge_weighted(
       stream_map((x) => list(head(s), x), stream_tail(t)),
       weighted_pairs(stream_tail(s), stream_tail(t), weight),
-      weight
-    )
+      weight,
+    ),
   );
 }
 
 const stream_a = weighted_pairs(integers, integers, plus);
 const integers_not_divisible_by_2_3_5 = stream_filter(
   (x) => !is_divisible(x, 2) && !is_divisible(x, 3) && !is_divisible(x, 5),
-  integers
+  integers,
 );
 const stream_b = weighted_pairs(
   integers_not_divisible_by_2_3_5,
   integers_not_divisible_by_2_3_5,
-  (i, j) => 2 * i + 3 * j + 5 * i * j
+  (i, j) => 2 * i + 3 * j + 5 * i * j,
 );
 
 export { stream_a, stream_b };

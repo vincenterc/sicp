@@ -7,8 +7,8 @@ function count_pairs(x) {
     return is_null(ps_counted)
       ? false
       : p === head(ps_counted)
-      ? true
-      : is_counted_pair(p, tail(ps_counted));
+        ? true
+        : is_counted_pair(p, tail(ps_counted));
   }
 
   function count(p) {

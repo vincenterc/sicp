@@ -1,13 +1,23 @@
-import { identity, inc } from './utils.js';
-import { plus, square, times } from './math.js'
+import { identity, inc } from "./utils.js";
+import { plus, square, times } from "./math.js";
 
 function filtered_accumulate(combiner, null_value, term, a, next, b, filter) {
   return a > b
     ? null_value
     : filter(a)
-    ? combiner(
-        term(a),
-        filtered_accumulate(
+      ? combiner(
+          term(a),
+          filtered_accumulate(
+            combiner,
+            null_value,
+            term,
+            next(a),
+            next,
+            b,
+            filter,
+          ),
+        )
+      : filtered_accumulate(
           combiner,
           null_value,
           term,
@@ -15,9 +25,7 @@ function filtered_accumulate(combiner, null_value, term, a, next, b, filter) {
           next,
           b,
           filter,
-        ),
-      )
-    : filtered_accumulate(combiner, null_value, term, next(a), next, b, filter);
+        );
 }
 
 function sum_square_prime(a, b) {

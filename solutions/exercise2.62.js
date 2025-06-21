@@ -12,9 +12,9 @@ function union_set(set1, set2) {
     return h1 < h2
       ? pair(h1, union_set(tail(set1), set2))
       : h1 > h2
-      ? pair(h2, union_set(set1, tail(set2)))
-      : // h1 === h2
-        pair(h1, union_set(tail(set1), tail(set2)));
+        ? pair(h2, union_set(set1, tail(set2)))
+        : // h1 === h2
+          pair(h1, union_set(tail(set1), tail(set2)));
   }
 }
 

@@ -7,7 +7,7 @@ describe("exercise 3.60", () => {
   it("tests the function mul_series", () => {
     const one = add_streams(
       mul_series(sine_series, sine_series),
-      mul_series(cosine_series, cosine_series)
+      mul_series(cosine_series, cosine_series),
     );
 
     expect(stream_ref(one, 0)).toBeCloseTo(1);

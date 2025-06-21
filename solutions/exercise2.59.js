@@ -12,8 +12,8 @@ function is_element_of_set(x, set) {
   return is_null(set)
     ? false
     : equal(x, head(set))
-    ? true
-    : is_element_of_set(x, tail(set));
+      ? true
+      : is_element_of_set(x, tail(set));
 }
 
 export { union_set };

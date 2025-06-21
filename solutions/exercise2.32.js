@@ -7,7 +7,7 @@ import {
   map,
   pair,
   tail,
-} from 'sicp';
+} from "sicp";
 
 function subsets(s) {
   if (is_null(s)) {

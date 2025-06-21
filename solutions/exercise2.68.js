@@ -14,8 +14,8 @@ function is_element_of_set(x, set) {
   return is_null(set)
     ? false
     : equal(x, head(set))
-    ? true
-    : is_element_of_set(x, tail(set));
+      ? true
+      : is_element_of_set(x, tail(set));
 }
 
 function make_leaf(symbol, weight) {
@@ -40,7 +40,7 @@ function make_code_tree(left, right) {
     left,
     right,
     append(symbols(left), symbols(right)),
-    weight(left) + weight(right)
+    weight(left) + weight(right),
   );
 }
 
@@ -88,8 +88,8 @@ const sample_tree = make_code_tree(
   make_leaf("A", 4),
   make_code_tree(
     make_leaf("B", 2),
-    make_code_tree(make_leaf("D", 1), make_leaf("C", 1))
-  )
+    make_code_tree(make_leaf("D", 1), make_leaf("C", 1)),
+  ),
 );
 const sample_message = list("A", "D", "A", "B", "B", "C", "A");
 

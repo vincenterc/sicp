@@ -1,4 +1,4 @@
-import { accumulate, display, list } from 'sicp';
+import { accumulate, display, list } from "sicp";
 
 function horner_eval(x, coefficient_sequence) {
   return accumulate(

@@ -1,5 +1,5 @@
-import { display, get_time, math_floor, math_random } from 'sicp';
-import { is_even, square } from './math.js';
+import { display, get_time, math_floor, math_random } from "sicp";
+import { is_even, square } from "./math.js";
 
 function timed_prime_test(n) {
   display(n);
@@ -15,7 +15,7 @@ function start_prime_test(n, start_time) {
 }
 
 function report_prime(elapsed_time) {
-  display(' *** ');
+  display(" *** ");
   display(elapsed_time);
   return true;
 }
@@ -24,8 +24,8 @@ function fast_is_prime(n, times) {
   return times === 0
     ? true
     : fermat_test(n)
-    ? fast_is_prime(n, times - 1)
-    : false;
+      ? fast_is_prime(n, times - 1)
+      : false;
 }
 
 function fermat_test(n) {
@@ -39,8 +39,8 @@ function expmod(base, exp, m) {
   return exp === 0
     ? 1
     : is_even(exp)
-    ? square(expmod(base, exp / 2, m)) % m
-    : (base * expmod(base, exp - 1, m)) % m;
+      ? square(expmod(base, exp / 2, m)) % m
+      : (base * expmod(base, exp - 1, m)) % m;
 }
 
 timed_prime_test(1009);

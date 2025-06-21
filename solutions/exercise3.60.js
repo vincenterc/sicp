@@ -24,8 +24,8 @@ function mul_series(s1, s2) {
   return pair(head(s1) * head(s2), () =>
     add_streams(
       scale_stream(stream_tail(s2), head(s1)),
-      mul_series(stream_tail(s1), s2)
-    )
+      mul_series(stream_tail(s1), s2),
+    ),
   );
 }
 

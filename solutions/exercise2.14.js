@@ -1,4 +1,4 @@
-import { display, head, math_max, math_min, pair, tail } from 'sicp';
+import { display, head, math_max, math_min, pair, tail } from "sicp";
 
 function make_interval(x, y) {
   return pair(x, y);

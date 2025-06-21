@@ -1,6 +1,6 @@
-import { display } from 'sicp';
-import { inc } from './utils.js';
-import { square } from './math.js'
+import { display } from "sicp";
+import { inc } from "./utils.js";
+import { square } from "./math.js";
 
 function compose(f, g) {
   return (x) => f(g(x));

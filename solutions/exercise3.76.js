@@ -12,7 +12,7 @@ function make_zero_crossings(input_stream, last_value, last_avpt) {
   return stream_map_2(
     sign_change_detector,
     smoothed_stream,
-    pair(last_avpt, () => smoothed_stream)
+    pair(last_avpt, () => smoothed_stream),
   );
 }
 
@@ -20,7 +20,7 @@ function smooth(s, last_value) {
   return stream_map_2(
     average,
     s,
-    pair(last_value, () => s)
+    pair(last_value, () => s),
   );
 }
 
@@ -28,8 +28,8 @@ function sign_change_detector(value, last_value) {
   return value >= 0 && last_value < 0
     ? 1
     : value < 0 && last_value >= 0
-    ? -1
-    : 0;
+      ? -1
+      : 0;
 }
 
 export { zero_crossings };

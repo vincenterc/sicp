@@ -4,16 +4,16 @@ function type_tag(datum) {
   return is_number(datum)
     ? "javascript_number"
     : is_pair(datum)
-    ? head(datum)
-    : error(datum, "bad tagged datum -- type_tag");
+      ? head(datum)
+      : error(datum, "bad tagged datum -- type_tag");
 }
 
 function contents(datum) {
   return is_number(datum)
     ? datum
     : is_pair(datum)
-    ? tail(datum)
-    : error(datum, "bad tagged datum -- contents");
+      ? tail(datum)
+      : error(datum, "bad tagged datum -- contents");
 }
 
 function attach_tag(type_tag, contents) {

@@ -18,7 +18,7 @@ function sqrt(x, tolerance) {
 
 function sqrt_stream(x) {
   return pair(1, () =>
-    stream_map((guess) => sqrt_improve(guess, x), sqrt_stream(x))
+    stream_map((guess) => sqrt_improve(guess, x), sqrt_stream(x)),
   );
 }
 

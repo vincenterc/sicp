@@ -29,8 +29,8 @@ function apply_generic(op, args) {
         return !is_undefined(t1_to_t2)
           ? apply_generic(op, list(t1_to_t2(a1), a2))
           : !is_undefined(t2_to_t1)
-          ? apply_generic(op, list(a1, t2_to_t1(a2)))
-          : error(list(op, type_tags), "no method for these types");
+            ? apply_generic(op, list(a1, t2_to_t1(a2)))
+            : error(list(op, type_tags), "no method for these types");
       }
     } else {
       return error(list(op, type_tags), "no method for these types");

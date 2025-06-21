@@ -8,7 +8,7 @@ describe("exercise 3.50", () => {
     const s = stream_map_2(
       plus,
       stream_enumerate_interval(1, 3),
-      stream_enumerate_interval(11, 13)
+      stream_enumerate_interval(11, 13),
     );
 
     expect(stream_ref(s, 0)).toBe(12);
@@ -21,7 +21,7 @@ describe("exercise 3.50", () => {
       const s = stream_map_2_optimized(
         times,
         stream_enumerate_interval(1, 3),
-        stream_enumerate_interval(4, 6)
+        stream_enumerate_interval(4, 6),
       );
 
       expect(stream_ref(s, 0)).toBe(4);

@@ -41,12 +41,12 @@ function make_account(balance) {
     return m === "withdraw"
       ? protect(withdraw)
       : m === "deposit"
-      ? protect(deposit)
-      : m === "balance"
-      ? balance
-      : m === "id"
-      ? id
-      : error(m, "unknown request -- make_account");
+        ? protect(deposit)
+        : m === "balance"
+          ? balance
+          : m === "id"
+            ? id
+            : error(m, "unknown request -- make_account");
   }
 
   return dispatch;

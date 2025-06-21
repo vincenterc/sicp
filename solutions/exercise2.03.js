@@ -1,4 +1,4 @@
-import { display, head, math_abs, pair, tail } from 'sicp';
+import { display, head, math_abs, pair, tail } from "sicp";
 
 function make_point(x, y) {
   return pair(x, y);

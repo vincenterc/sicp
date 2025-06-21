@@ -8,7 +8,7 @@ import {
   map,
   pair,
   tail,
-} from 'sicp';
+} from "sicp";
 
 const x = list(list(1, 2), list(3, 4));
 

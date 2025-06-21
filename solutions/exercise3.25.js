@@ -24,10 +24,10 @@ function make_table() {
         return is_undefined(subtable_or_record)
           ? undefined
           : !is_pair(tail(subtable_or_record)) // record
-          ? is_null(tail(keys))
-            ? tail(subtable_or_record)
-            : undefined
-          : helper(tail(keys), subtable_or_record); // subtable
+            ? is_null(tail(keys))
+              ? tail(subtable_or_record)
+              : undefined
+            : helper(tail(keys), subtable_or_record); // subtable
       }
     }
 
@@ -64,8 +64,8 @@ function make_table() {
     return m === "lookup"
       ? lookup
       : m === "insert"
-      ? insert
-      : error(m, "unknown operation -- table");
+        ? insert
+        : error(m, "unknown operation -- table");
   }
 
   return dispatch;
@@ -75,8 +75,8 @@ function assoc(key, records) {
   return is_null(records)
     ? undefined
     : equal(key, head(head(records)))
-    ? head(records)
-    : assoc(key, tail(records));
+      ? head(records)
+      : assoc(key, tail(records));
 }
 
 export { make_table };

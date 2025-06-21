@@ -9,16 +9,16 @@ function estimate_integral(predicate, upper_x, upper_y, lower_x, lower_y) {
   const random_pairs = make_random_pairs();
   const dirichlet_stream = stream_map(
     (p) => predicate(head(p), tail(p)),
-    random_pairs
+    random_pairs,
   );
 
   function make_random_pairs() {
     return pair(
       pair(
         random_in_range(lower_x, upper_x),
-        random_in_range(lower_y, upper_y)
+        random_in_range(lower_y, upper_y),
       ),
-      () => make_random_pairs()
+      () => make_random_pairs(),
     );
   }
 
@@ -28,7 +28,7 @@ function estimate_integral(predicate, upper_x, upper_y, lower_x, lower_y) {
 function monte_carlo(experiment_stream, passed, failed) {
   function next(passed, failed) {
     return pair(passed / (passed + failed), () =>
-      monte_carlo(stream_tail(experiment_stream), passed, failed)
+      monte_carlo(stream_tail(experiment_stream), passed, failed),
     );
   }
   return head(experiment_stream)

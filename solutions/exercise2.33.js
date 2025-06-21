@@ -1,4 +1,4 @@
-import { accumulate, pair } from 'sicp';
+import { accumulate, pair } from "sicp";
 
 function map(f, sequence) {
   return accumulate((x, y) => pair(f(x), y), null, sequence);

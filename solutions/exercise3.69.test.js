@@ -29,12 +29,12 @@ describe("exercise 3.69", () => {
   it("tests the constant pythagorean", () => {
     const p0 = stream_ref(pythagorean, 0);
     expect(square(head(p0)) + square(head(tail(p0)))).toBe(
-      square(head(tail(tail(p0))))
+      square(head(tail(tail(p0)))),
     );
 
     const p1 = stream_ref(pythagorean, 1);
     expect(square(head(p1)) + square(head(tail(p1)))).toBe(
-      square(head(tail(tail(p1))))
+      square(head(tail(tail(p1)))),
     );
   });
 });

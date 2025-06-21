@@ -46,14 +46,14 @@ function make_queue() {
     return m === "is_empty"
       ? is_empty()
       : m === "front"
-      ? front()
-      : m === "insert"
-      ? insert
-      : m === "delete"
-      ? dele()
-      : m === "print"
-      ? print()
-      : error(m, "undefined operation -- pair");
+        ? front()
+        : m === "insert"
+          ? insert
+          : m === "delete"
+            ? dele()
+            : m === "print"
+              ? print()
+              : error(m, "undefined operation -- pair");
   }
 
   return dispatch;

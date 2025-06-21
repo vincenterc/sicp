@@ -72,7 +72,7 @@ function find_employee_record(employee, files) {
   return accumulate(
     (file, res) => (is_undefined(res) ? get_record(file, employee) : res),
     undefined,
-    files
+    files,
   );
 }
 
@@ -92,28 +92,28 @@ const marketing = attach_tag(
       list(
         pair("name", "James"),
         pair("salary", 200),
-        pair("address", "Shinjuku, Tokyo")
-      )
+        pair("address", "Shinjuku, Tokyo"),
+      ),
     ),
     pair(
       "Emily",
       list(
         pair("name", "Emily"),
         pair("salary", 250),
-        pair("address", "Setagaya, Tokyo")
-      )
-    )
-  )
+        pair("address", "Setagaya, Tokyo"),
+      ),
+    ),
+  ),
 );
 const sales = attach_tag(
   "sales",
   list(
     pair(
       "Sarah",
-      list(pair("salary", 220), pair("address", "Suginami, Tokyo"))
+      list(pair("salary", 220), pair("address", "Suginami, Tokyo")),
     ),
-    pair("Emma", list(pair("salary", 260), pair("address", "Shibuya, Tokyo")))
-  )
+    pair("Emma", list(pair("salary", 260), pair("address", "Shibuya, Tokyo"))),
+  ),
 );
 const files = list(marketing, sales);
 
@@ -125,16 +125,16 @@ function install_marketing_package() {
     return is_null(records)
       ? undefined
       : head(head(records)) === employee
-      ? tail(head(records))
-      : get_record(tail(records), employee);
+        ? tail(head(records))
+        : get_record(tail(records), employee);
   }
 
   function get_salary(record) {
     return is_undefined(record)
       ? undefined
       : head(head(record)) === "salary"
-      ? tail(head(record))
-      : get_salary(tail(record));
+        ? tail(head(record))
+        : get_salary(tail(record));
   }
 
   put("get_record", "marketing", get_record);
@@ -146,8 +146,8 @@ function install_sales_package() {
     return is_null(records)
       ? undefined
       : head(head(records)) === employee
-      ? head(records)
-      : get_record(tail(records), employee);
+        ? head(records)
+        : get_record(tail(records), employee);
   }
 
   function get_salary(record) {
@@ -155,8 +155,8 @@ function install_sales_package() {
       return is_undefined(content)
         ? undefined
         : head(head(content)) === "salary"
-        ? tail(head(content))
-        : get_salary(tail(content));
+          ? tail(head(content))
+          : get_salary(tail(content));
     }
 
     return is_undefined(record) ? undefined : iter(tail(record));

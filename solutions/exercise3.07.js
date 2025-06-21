@@ -39,8 +39,8 @@ function make_account(balance, password) {
         m === "withdraw"
           ? withdraw
           : m === "deposit"
-          ? deposit
-          : error(m, "unknown request -- make_account");
+            ? deposit
+            : error(m, "unknown request -- make_account");
     } else {
       return "Incorrect password";
     }

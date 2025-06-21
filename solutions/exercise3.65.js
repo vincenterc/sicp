@@ -34,7 +34,7 @@ function euler_transform(s) {
   const s2 = stream_ref(s, 2); // Sn+1
   return pair(
     s2 - square(s2 - s1) / (s0 + -2 * s1 + s2),
-    memo(() => euler_transform(stream_tail(s)))
+    memo(() => euler_transform(stream_tail(s))),
   );
 }
 

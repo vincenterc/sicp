@@ -1,5 +1,5 @@
-import { display } from 'sicp';
-import { identity, inc, is_even } from './utils.js';
+import { display } from "sicp";
+import { identity, inc, is_even } from "./utils.js";
 
 function product(term, a, next, b) {
   return a > b ? 1 : term(a) * product(term, next(a), next, b);

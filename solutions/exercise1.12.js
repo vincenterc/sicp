@@ -1,4 +1,4 @@
-import { display } from 'sicp';
+import { display } from "sicp";
 
 // assume col <= row
 function pascal_triangle(row, col) {

@@ -21,7 +21,7 @@ function generate_3_ways_sum_of_squares_numbers() {
 
     return first_weight === second_weight && second_weight === third_weight
       ? pair(list(first, second, third, first_weight), () =>
-          helper(stream_tail(stream_tail(stream_tail(ps))))
+          helper(stream_tail(stream_tail(stream_tail(ps)))),
         )
       : helper(stream_tail(ps));
   }

@@ -15,7 +15,7 @@ test("exercise 3.7", () => {
   const paul_acc_incorrect_password = make_joint(
     peter_acc,
     "incorrect password",
-    "rosebud"
+    "rosebud",
   );
 
   expect(paul_acc_incorrect_password).toBe("Incorrect password");

@@ -15,12 +15,12 @@ function div_terms(L1, L2) {
       const new_term = make_term(new_o, new_c);
       const rest_of_result = div_terms(
         add_terms(L1, negate_terms(mul_terms(list(new_term), L2))),
-        L2
+        L2,
       );
 
       return list(
         adjoin_term(new_term, head(rest_of_result)),
-        head(tail(rest_of_result))
+        head(tail(rest_of_result)),
       );
     }
   }

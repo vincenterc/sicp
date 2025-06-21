@@ -22,8 +22,8 @@ function stream_take(s0, n0) {
     return n === 0
       ? null
       : is_null(s)
-      ? error(`stream_take: stream ended before index, index: ${n0}`)
-      : pair(head(s), () => helper(stream_tail(s), n - 1));
+        ? error(`stream_take: stream ended before index, index: ${n0}`)
+        : pair(head(s), () => helper(stream_tail(s), n - 1));
   }
 
   return n0 < 0
@@ -42,7 +42,7 @@ function stream_map_optimized(f, s) {
     ? null
     : pair(
         f(head(s)),
-        memo(() => stream_map_optimized(f, stream_tail(s)))
+        memo(() => stream_map_optimized(f, stream_tail(s))),
       );
 }
 
@@ -50,7 +50,7 @@ function stream_map_2(f, s1, s2) {
   return is_null(s1) || is_null(s2)
     ? null
     : pair(f(head(s1), head(s2)), () =>
-        stream_map_2(f, stream_tail(s1), stream_tail(s2))
+        stream_map_2(f, stream_tail(s1), stream_tail(s2)),
       );
 }
 
@@ -59,7 +59,7 @@ function stream_map_2_optimized(f, s1, s2) {
     ? null
     : pair(
         f(head(s1), head(s2)),
-        memo(() => stream_map_2_optimized(f, stream_tail(s1), stream_tail(s2)))
+        memo(() => stream_map_2_optimized(f, stream_tail(s1), stream_tail(s2))),
       );
 }
 
@@ -67,19 +67,19 @@ function stream_filter(pred, stream) {
   return is_null(stream)
     ? null
     : pred(head(stream))
-    ? pair(head(stream), () => stream_filter(pred, stream_tail(stream)))
-    : stream_filter(pred, stream_tail(stream));
+      ? pair(head(stream), () => stream_filter(pred, stream_tail(stream)))
+      : stream_filter(pred, stream_tail(stream));
 }
 
 function stream_filter_optimized(pred, stream) {
   return is_null(stream)
     ? null
     : pred(head(stream))
-    ? pair(
-        head(stream),
-        memo(() => stream_filter_optimized(pred, stream_tail(stream)))
-      )
-    : stream_filter_optimized(pred, stream_tail(stream));
+      ? pair(
+          head(stream),
+          memo(() => stream_filter_optimized(pred, stream_tail(stream))),
+        )
+      : stream_filter_optimized(pred, stream_tail(stream));
 }
 
 function stream_for_each(fun, s) {
@@ -143,14 +143,14 @@ function mul_series(s1, s2) {
   return pair(head(s1) * head(s2), () =>
     add_streams(
       scale_stream(stream_tail(s2), head(s1)),
-      mul_series(stream_tail(s1), s2)
-    )
+      mul_series(stream_tail(s1), s2),
+    ),
   );
 }
 
 function invert_unit_series(s) {
   return pair(1, () =>
-    scale_stream(mul_series(stream_tail(s), invert_unit_series(s)), -1)
+    scale_stream(mul_series(stream_tail(s), invert_unit_series(s)), -1),
   );
 }
 
@@ -162,8 +162,8 @@ function pairs(s, t) {
   return pair(list(head(s), head(t)), () =>
     interleave(
       stream_map((x) => list(head(s), x), stream_tail(t)),
-      pairs(stream_tail(s), stream_tail(t))
-    )
+      pairs(stream_tail(s), stream_tail(t)),
+    ),
   );
 }
 
@@ -178,8 +178,8 @@ function weighted_pairs(s, t, weight) {
     merge_weighted(
       stream_map((x) => list(head(s), x), stream_tail(t)),
       weighted_pairs(stream_tail(s), stream_tail(t), weight),
-      weight
-    )
+      weight,
+    ),
   );
 }
 

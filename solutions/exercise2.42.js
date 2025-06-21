@@ -8,7 +8,7 @@ import {
   map,
   pair,
   tail,
-} from 'sicp';
+} from "sicp";
 
 function adjoin_position(row, col, ps) {
   return pair(pair(row, col), ps);

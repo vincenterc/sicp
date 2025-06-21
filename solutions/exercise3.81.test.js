@@ -13,8 +13,8 @@ describe("exercise 3.81", () => {
         "generate",
         pair("reset", 17),
         "generate",
-        "generate"
-      )
+        "generate",
+      ),
     );
 
     expect(stream_ref(random_numbers, 0)).toBe(184877);

@@ -1,12 +1,12 @@
-import { display, math_floor, math_random } from 'sicp';
-import { is_even, square } from './math.js';
+import { display, math_floor, math_random } from "sicp";
+import { is_even, square } from "./math.js";
 
 function is_prime(n, times) {
   return times === 0
     ? true
     : miller_rabin_test(n)
-    ? is_prime(n, times - 1)
-    : false;
+      ? is_prime(n, times - 1)
+      : false;
 }
 
 function miller_rabin_test(n) {
@@ -21,16 +21,16 @@ function expmod(base, exp, m) {
   return exp === 0
     ? 1
     : is_even(exp)
-    ? nontrivial_sqrt_test(expmod(base, exp / 2, m), m)
-    : (base * expmod(base, exp - 1, m)) % m;
+      ? nontrivial_sqrt_test(expmod(base, exp / 2, m), m)
+      : (base * expmod(base, exp - 1, m)) % m;
 }
 
 function nontrivial_sqrt_test(r, m) {
   return r === 1 || r === m - 1
     ? square(r) % m
     : square(r) % m === 1
-    ? 0
-    : square(r) % m;
+      ? 0
+      : square(r) % m;
 }
 
 display(is_prime(71, 10));

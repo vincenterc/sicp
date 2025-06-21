@@ -12,7 +12,7 @@ describe("exercise 3.26", () => {
     expect(get("a")).toBe(1);
     expect(get("b")).toBe(2);
     expect(get("c")).toBe(undefined);
-	put("a", 3);
-	expect(get("a")).toBe(3);
+    put("a", 3);
+    expect(get("a")).toBe(3);
   });
 });

@@ -1,5 +1,5 @@
-import { display, head, is_null, list, pair, tail } from 'sicp';
-import { square } from './math.js';
+import { display, head, is_null, list, pair, tail } from "sicp";
+import { square } from "./math.js";
 
 function square_list(items) {
   return is_null(items)

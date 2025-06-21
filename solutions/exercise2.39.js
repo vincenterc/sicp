@@ -1,4 +1,4 @@
-import { append, display_list, head, is_null, list, pair, tail } from 'sicp';
+import { append, display_list, head, is_null, list, pair, tail } from "sicp";
 
 function fold_right(op, initial, sequence) {
   return is_null(sequence)

@@ -1,5 +1,5 @@
-import { display, get_time } from 'sicp';
-import { square } from './math.js';
+import { display, get_time } from "sicp";
+import { square } from "./math.js";
 
 function timed_prime_test(n) {
   display(n);
@@ -11,7 +11,7 @@ function start_prime_test(n, start_time) {
 }
 
 function report_prime(elapsed_time) {
-  display(' *** ');
+  display(" *** ");
   display(elapsed_time);
   return true;
 }
@@ -28,8 +28,8 @@ function find_divisor(n, test_divisor) {
   return square(test_divisor) > n
     ? n
     : divides(test_divisor, n)
-    ? test_divisor
-    : find_divisor(n, next(test_divisor));
+      ? test_divisor
+      : find_divisor(n, next(test_divisor));
 }
 
 function next(n) {

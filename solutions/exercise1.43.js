@@ -1,5 +1,5 @@
-import { display } from 'sicp';
-import { square } from './math.js';
+import { display } from "sicp";
+import { square } from "./math.js";
 
 function compose(f, g) {
   return (x) => f(g(x));

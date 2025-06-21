@@ -24,7 +24,7 @@ function make_table() {
     if (is_undefined(record)) {
       set_tail(
         local_table,
-        insert_record(make_record(key, value), tail(local_table))
+        insert_record(make_record(key, value), tail(local_table)),
       );
     } else {
       set_value(record, value);
@@ -35,8 +35,8 @@ function make_table() {
     return m === "lookup"
       ? lookup
       : m === "insert"
-      ? insert
-      : error(m, "unknown operation -- table");
+        ? insert
+        : error(m, "unknown operation -- table");
   }
 
   return dispatch;
@@ -84,9 +84,9 @@ function get_record(given_key, records) {
     return equal(given_key, current_key)
       ? current_entry
       : given_key < current_key
-      ? get_record(given_key, left_branch(records))
-      : // given_key > current_key
-        get_record(given_key, right_branch(records));
+        ? get_record(given_key, left_branch(records))
+        : // given_key > current_key
+          get_record(given_key, right_branch(records));
   }
 }
 
@@ -102,13 +102,13 @@ function insert_record(record, records) {
       ? make_tree(
           current_entry,
           insert_record(record, left_branch(records)),
-          right_branch(records)
+          right_branch(records),
         )
       : // record_key < current_key
         make_tree(
           current_entry,
           left_branch(records),
-          insert_record(record, right_branch(records))
+          insert_record(record, right_branch(records)),
         );
   }
 }

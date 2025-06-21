@@ -1,4 +1,4 @@
-const { list } = require('sicp');
+const { list } = require("sicp");
 
 function segments_to_painter(segment_list) {
   return (frame) =>

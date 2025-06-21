@@ -1,5 +1,5 @@
-import { display, math_abs, math_floor, math_log2 } from 'sicp';
-import { average, is_even, square } from './math.js';
+import { display, math_abs, math_floor, math_log2 } from "sicp";
+import { average, is_even, square } from "./math.js";
 
 const tolerance = 0.00001;
 
@@ -52,8 +52,8 @@ function fast_expt(b, n) {
   return n === 0
     ? 1
     : is_even(n)
-    ? square(fast_expt(b, n / 2))
-    : b * fast_expt(b, n - 1);
+      ? square(fast_expt(b, n / 2))
+      : b * fast_expt(b, n - 1);
 }
 
 // Assume n >= 2

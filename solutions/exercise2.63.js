@@ -3,17 +3,17 @@ import { append, display_list, head, is_null, list, pair, tail } from "sicp";
 const tree1 = list(
   7,
   list(3, list(1, null, null), list(5, null, null)),
-  list(9, null, list(11, null, null))
+  list(9, null, list(11, null, null)),
 );
 const tree2 = list(
   3,
   list(1, null, null),
-  list(7, list(5, null, null), list(9, null, list(11, null, null)))
+  list(7, list(5, null, null), list(9, null, list(11, null, null))),
 );
 const tree3 = list(
   5,
   list(3, list(1, null, null), null),
-  list(9, list(7, null, null), list(11, null, null))
+  list(9, list(7, null, null), list(11, null, null)),
 );
 
 function entry(tree) {
@@ -33,7 +33,7 @@ function tree_to_list_1(tree) {
     ? null
     : append(
         tree_to_list_1(left_branch(tree)),
-        pair(entry(tree), tree_to_list_1(right_branch(tree)))
+        pair(entry(tree), tree_to_list_1(right_branch(tree))),
       );
 }
 
@@ -50,7 +50,7 @@ function tree_to_list_2(tree) {
       ? result_list
       : copy_to_list(
           left_branch(tree),
-          pair(entry(tree), copy_to_list(right_branch(tree), result_list))
+          pair(entry(tree), copy_to_list(right_branch(tree), result_list)),
         );
   }
   return copy_to_list(tree, null);

@@ -9,8 +9,8 @@ function apply_generic(op, args) {
     return is_null(funcs)
       ? true
       : is_undefined(head(funcs))
-      ? false
-      : can_transform(tail(funcs));
+        ? false
+        : can_transform(tail(funcs));
   }
 
   function get_transform_functions(types) {
@@ -18,7 +18,7 @@ function apply_generic(op, args) {
       return map(
         (type) =>
           type === target_type ? identity : get_coercion(type, target_type),
-        type_tags
+        type_tags,
       );
     }
 

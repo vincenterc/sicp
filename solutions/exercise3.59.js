@@ -6,7 +6,7 @@ function integrate_series(s) {
 }
 
 const cosine_series = pair(1, () =>
-  scale_stream(integrate_series(sine_series), -1)
+  scale_stream(integrate_series(sine_series), -1),
 );
 const sine_series = pair(0, () => integrate_series(cosine_series));
 

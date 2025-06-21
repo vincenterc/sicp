@@ -1,4 +1,4 @@
-import { display, math_PI, math_tan } from 'sicp';
+import { display, math_PI, math_tan } from "sicp";
 
 function con_frac(n, d, k) {
   function rec(i) {

@@ -16,8 +16,8 @@ function make_table(same_key) {
     return is_null(records)
       ? undefined
       : same_key(key, head(head(records)))
-      ? head(records)
-      : assoc(key, tail(records));
+        ? head(records)
+        : assoc(key, tail(records));
   }
 
   function lookup(key) {
@@ -42,8 +42,8 @@ function make_table(same_key) {
     return m === "lookup"
       ? lookup
       : m === "insert"
-      ? insert
-      : error(m, "unknown operation -- table");
+        ? insert
+        : error(m, "unknown operation -- table");
   }
 
   return dispatch;

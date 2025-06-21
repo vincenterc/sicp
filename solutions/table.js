@@ -31,7 +31,7 @@ function make_2d_table() {
     if (is_undefined(subtable)) {
       set_tail(
         local_table,
-        pair(list(key_1, pair(key_2, value)), tail(local_table))
+        pair(list(key_1, pair(key_2, value)), tail(local_table)),
       );
     } else {
       const record = assoc(key_2, tail(subtable));
@@ -48,8 +48,8 @@ function make_2d_table() {
     return m === "lookup"
       ? lookup
       : m === "insert"
-      ? insert
-      : error(m, "unknown operation -- table");
+        ? insert
+        : error(m, "unknown operation -- table");
   }
 
   return dispatch;
@@ -59,8 +59,8 @@ function assoc(key, records) {
   return is_null(records)
     ? undefined
     : equal(key, head(head(records)))
-    ? head(records)
-    : assoc(key, tail(records));
+      ? head(records)
+      : assoc(key, tail(records));
 }
 
 export { make_2d_table };

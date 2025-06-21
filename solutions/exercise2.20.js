@@ -1,4 +1,4 @@
-import { display, head, is_null, list, tail } from 'sicp';
+import { display, head, is_null, list, tail } from "sicp";
 
 function plus_curried(x) {
   return (y) => x + y;
