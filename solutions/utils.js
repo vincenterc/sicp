@@ -34,6 +34,10 @@ function is_divisible(x, y) {
   return x % y === 0;
 }
 
+function gcd(a, b) {
+  return b === 0 ? a : gcd(b, a % b);
+}
+
 export {
   identity,
   inc,
@@ -44,4 +48,5 @@ export {
   cube,
   is_even,
   is_divisible,
+  gcd,
 };
