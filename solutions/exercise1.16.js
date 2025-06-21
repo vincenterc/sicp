@@ -1,4 +1,4 @@
-import { is_even } from './utils.js';
+import { is_even } from './math.js';
 
 function fast_expt(b, n) {
   return fast_expt_iter(b, n, 1);

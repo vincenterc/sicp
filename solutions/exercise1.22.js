@@ -1,5 +1,5 @@
 import { display, get_time } from 'sicp';
-import { is_even, square } from './utils.js';
+import { is_even, square } from './math.js';
 
 function search_for_primes(n, count) {
   return count === 0

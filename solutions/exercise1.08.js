@@ -1,5 +1,5 @@
 import { display, math_abs } from 'sicp';
-import { cube } from './utils.js';
+import { cube } from './math.js';
 
 const tolerance = 0.001;
 

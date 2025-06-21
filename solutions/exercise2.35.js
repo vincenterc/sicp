@@ -1,5 +1,5 @@
 import { accumulate, display, is_pair, list, map, pair } from 'sicp';
-import { plus } from './utils.js';
+import { plus } from './math.js';
 
 function count_leaves(t) {
   return accumulate(

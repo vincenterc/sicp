@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { head, list, tail } from "sicp";
-import { square } from "./utils.js";
+import { square } from "./math.js";
 import { integers, stream_ref } from "./stream.js";
 import { pythagorean, triples } from "./exercise3.69.js";
 

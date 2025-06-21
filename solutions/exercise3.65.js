@@ -7,7 +7,7 @@ import {
   stream_ref,
   stream_tail,
 } from "./stream.js";
-import { square } from "./utils.js";
+import { square } from "./math.js";
 
 function ln2_summands(n) {
   return pair(1 / n, () => stream_map((x) => -x, ln2_summands(n + 1)));

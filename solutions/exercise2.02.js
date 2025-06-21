@@ -1,5 +1,5 @@
 import { display, head, pair, stringify, tail } from 'sicp';
-import { average } from './utils.js';
+import { average } from './math.js';
 
 function make_segment(start, end) {
   return pair(start, end);

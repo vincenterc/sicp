@@ -1,5 +1,5 @@
 import { head, pair, tail } from "sicp";
-import { cube } from "./utils.js";
+import { cube } from "./math.js";
 import {
   display_stream,
   integers,

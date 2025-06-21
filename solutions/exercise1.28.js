@@ -1,5 +1,5 @@
 import { display, math_floor, math_random } from 'sicp';
-import { is_even, square } from './utils.js';
+import { is_even, square } from './math.js';
 
 function is_prime(n, times) {
   return times === 0

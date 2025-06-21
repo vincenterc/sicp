@@ -8,7 +8,7 @@ import {
   pair,
   tail,
 } from 'sicp';
-import { plus } from './utils.js';
+import { plus } from './math.js';
 
 function accumulate_n(op, init, seqs) {
   return is_null(head(seqs))

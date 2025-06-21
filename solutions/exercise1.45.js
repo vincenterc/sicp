@@ -1,5 +1,5 @@
 import { display, math_abs, math_floor, math_log2 } from 'sicp';
-import { average, is_even, square } from './utils.js';
+import { average, is_even, square } from './math.js';
 
 const tolerance = 0.00001;
 

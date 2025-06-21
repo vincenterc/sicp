@@ -7,7 +7,7 @@ import {
   map,
   pair,
 } from 'sicp';
-import { plus } from './utils.js';
+import { plus } from './math.js';
 
 function enumerate_interval(low, high) {
   return low > high ? null : pair(low, enumerate_interval(low + 1, high));

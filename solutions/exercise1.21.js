@@ -1,5 +1,5 @@
 import { display } from 'sicp';
-import { square } from './utils.js';
+import { square } from './math.js';
 
 function smallest_divisor(n) {
   return find_divisor(n, 2);

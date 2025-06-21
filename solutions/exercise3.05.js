@@ -1,5 +1,5 @@
 import { display, math_random } from "sicp";
-import { square } from "./utils.js";
+import { square } from "./math.js";
 
 function estimate_integral(
   predicate,

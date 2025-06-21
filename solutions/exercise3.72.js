@@ -1,5 +1,5 @@
 import { head, list, pair, tail } from "sicp";
-import { square } from "./utils.js";
+import { square } from "./math.js";
 import {
   display_stream,
   integers,

@@ -1,5 +1,5 @@
 import { pair, stream } from "sicp";
-import { average } from "./utils.js";
+import { average } from "./math.js";
 import { cycle_stream, stream_map_2 } from "./stream.js";
 
 const sense_data = stream(1, 2, 1.5, 1, 0.5, -0.1, -2, -3, -2, -0.5, 0.2, 3, 4);

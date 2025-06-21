@@ -1,5 +1,6 @@
 import { display } from 'sicp';
-import { cube, inc, is_even } from './utils.js';
+import { inc } from './utils.js';
+import { cube, is_even } from './math.js'
 
 function integral(f, a, b, dx) {
   function add_dx(x) {

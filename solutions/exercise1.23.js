@@ -1,5 +1,5 @@
 import { display, get_time } from 'sicp';
-import { square } from './utils.js';
+import { square } from './math.js';
 
 function timed_prime_test(n) {
   display(n);

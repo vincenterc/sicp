@@ -1,5 +1,5 @@
 import { display, math_abs, math_cos, math_sin } from 'sicp';
-import { average, square } from './utils.js';
+import { average, square } from './math.js';
 
 function iterative_improve(is_good_enough, improve) {
   function try_with(guess) {

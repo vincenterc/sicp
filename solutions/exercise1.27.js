@@ -1,5 +1,5 @@
 import { display } from 'sicp';
-import { is_even, square } from './utils.js';
+import { is_even, square } from './math.js';
 
 function carmichael(n) {
   return fermat_test(n - 1, n);

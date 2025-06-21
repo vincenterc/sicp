@@ -8,7 +8,7 @@ import {
   pair,
   tail,
 } from 'sicp';
-import { square } from './utils.js';
+import { square } from './math.js';
 
 function square_tree(tree) {
   return is_null(tree)

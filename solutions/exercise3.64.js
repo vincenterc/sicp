@@ -1,5 +1,5 @@
 import { head, math_abs, pair } from "sicp";
-import { average } from "./utils.js";
+import { average } from "./math.js";
 import { stream_map, stream_tail } from "./stream.js";
 
 function stream_limit(s, tolerance) {

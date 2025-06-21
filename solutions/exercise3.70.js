@@ -1,5 +1,5 @@
 import { head, is_null, list, pair, tail } from "sicp";
-import { is_divisible, plus } from "./utils.js";
+import { is_divisible, plus } from "./math.js";
 import { integers, stream_filter, stream_map, stream_tail } from "./stream.js";
 
 function merge_weighted(s1, s2, weight) {

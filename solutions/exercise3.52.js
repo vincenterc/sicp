@@ -1,5 +1,5 @@
 import { display } from "sicp";
-import { is_even } from "./utils.js";
+import { is_even } from "./math.js";
 import {
   display_stream,
   stream_enumerate_interval,

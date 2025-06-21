@@ -1,4 +1,4 @@
-import { is_even } from './utils.js';
+import { is_even } from './math.js';
 
 function fast_times(a, b) {
   return b === 0

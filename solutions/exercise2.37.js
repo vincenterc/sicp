@@ -1,5 +1,5 @@
 import { accumulate, head, is_null, list, map, pair, tail } from 'sicp';
-import { plus, times } from './utils.js';
+import { plus, times } from './math.js';
 
 function accumulate_n(op, init, seqs) {
   return is_null(head(seqs))

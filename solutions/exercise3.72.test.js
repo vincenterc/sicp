@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { head, tail } from "sicp";
-import { square } from "./utils.js";
+import { square } from "./math.js";
 import { stream_ref } from "./stream.js";
 import { generate_3_ways_sum_of_squares_numbers } from "./exercise3.72.js";
 

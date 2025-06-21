@@ -1,5 +1,5 @@
 import { display, head, math_random, pair, tail } from "sicp";
-import { square } from "./utils.js";
+import { square } from "./math.js";
 import { stream_map, stream_ref, stream_tail } from "./stream.js";
 
 const pi_stream = estimate_integral(unit_circle_test, 1, 1, -1, -1);

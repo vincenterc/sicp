@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { plus, times } from "./utils.js";
+import { plus, times } from "./math.js";
 import { stream_enumerate_interval, stream_ref } from "./stream.js";
 import { stream_map_2, stream_map_2_optimized } from "./exercise3.50.js";
 

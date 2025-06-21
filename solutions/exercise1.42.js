@@ -1,5 +1,6 @@
 import { display } from 'sicp';
-import { inc, square } from './utils.js';
+import { inc } from './utils.js';
+import { square } from './math.js'
 
 function compose(f, g) {
   return (x) => f(g(x));
