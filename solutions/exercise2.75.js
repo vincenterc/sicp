@@ -15,3 +15,5 @@ function make_from_mag_ang(r, a) {
 
   return dispatch;
 }
+
+export { make_from_mag_ang };
