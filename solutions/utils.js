@@ -3,6 +3,7 @@ import {
   error,
   head,
   is_null,
+  is_pair,
   is_undefined,
   list,
   pair,
@@ -67,4 +68,20 @@ function assoc(key, records) {
       : assoc(key, tail(records));
 }
 
-export { identity, make_2d_table };
+function attach_tag(type_tag, contents) {
+  return pair(type_tag, contents);
+}
+
+function type_tag(datum) {
+  return is_pair(datum)
+    ? head(datum)
+    : error(datum, "bad tagged datum -- type_tag");
+}
+
+function contents(datum) {
+  return is_pair(datum)
+    ? tail(datum)
+    : error(datum, "bad tagged datum -- contents");
+}
+
+export { identity, make_2d_table, attach_tag, type_tag, contents };

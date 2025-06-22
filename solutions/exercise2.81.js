@@ -4,7 +4,6 @@ import {
   list,
   error,
   pair,
-  is_pair,
   head,
   is_undefined,
   tail,
@@ -15,7 +14,7 @@ import {
   length,
   math_pow,
 } from "sicp";
-import { make_2d_table } from "./utils.js";
+import { attach_tag, contents, make_2d_table, type_tag } from "./utils.js";
 import { square } from "./math.js";
 
 // a.
@@ -281,22 +280,6 @@ function install_coercion_package() {
   }
 
   put_coercion("javascript_number", "complex", javascript_number_to_complex);
-}
-
-function attach_tag(type_tag, contents) {
-  return pair(type_tag, contents);
-}
-
-function type_tag(datum) {
-  return is_pair(datum)
-    ? head(datum)
-    : error(datum, "bad tagged datum -- type_tag");
-}
-
-function contents(datum) {
-  return is_pair(datum)
-    ? tail(datum)
-    : error(datum, "bad tagged datum -- contents");
 }
 
 export { exp, make_javascript_number, make_complex_from_real_imag };

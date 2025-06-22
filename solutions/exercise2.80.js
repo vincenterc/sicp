@@ -11,7 +11,7 @@ import {
   pair,
   tail,
 } from "sicp";
-import { make_2d_table } from "./utils.js";
+import { attach_tag, contents, make_2d_table, type_tag } from "./utils.js";
 import { gcd } from "./math.js";
 
 // function is_equal_to_zero(x) {
@@ -312,22 +312,6 @@ function apply_generic(op, args) {
   return !is_undefined(fun)
     ? apply_in_underlying_javascript(fun, map(contents, args))
     : error(list(op, type_tags), "no method for these types -- apply_generic");
-}
-
-function attach_tag(type_tag, contents) {
-  return pair(type_tag, contents);
-}
-
-function type_tag(datum) {
-  return is_pair(datum)
-    ? head(datum)
-    : error(datum, "bad tagged datum -- type_tag");
-}
-
-function contents(datum) {
-  return is_pair(datum)
-    ? tail(datum)
-    : error(datum, "bad tagged datum -- contents");
 }
 
 export {

@@ -8,7 +8,7 @@ import {
   pair,
   tail,
 } from "sicp";
-import { make_2d_table } from "./utils.js";
+import { attach_tag, make_2d_table } from "./utils.js";
 
 // a.
 // The division's files should be pair(division_name, employee_records).
@@ -164,10 +164,6 @@ function install_sales_package() {
 
   put("get_record", "sales", get_record);
   put("get_salary", "sales", get_salary);
-}
-
-function attach_tag(type_tag, contents) {
-  return pair(type_tag, contents);
 }
 
 export {
