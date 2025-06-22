@@ -37,6 +37,7 @@ function apply_generic(op, args) {
       const type1 = head(type_tags);
       const type2 = head(tail(type_tags));
 
+      // new clause
       if (type1 === type2) {
         return error(list(op, type_tags), "no method for these types");
       } else {
