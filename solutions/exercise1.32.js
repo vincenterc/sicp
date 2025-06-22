@@ -1,6 +1,6 @@
 import { display } from "sicp";
-import { identity, inc } from "./utils.js";
-import { plus, times } from "./math.js";
+import { identity } from "./utils.js";
+import { inc, plus, times } from "./math.js";
 
 function accumulate(combiner, null_value, term, a, next, b) {
   return a > b

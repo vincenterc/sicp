@@ -18,6 +18,10 @@ function cube(x) {
   return x * x * x;
 }
 
+function inc(k) {
+  return k + 1;
+}
+
 function is_even(n) {
   return n % 2 === 0;
 }
@@ -30,4 +34,4 @@ function gcd(a, b) {
   return b === 0 ? a : gcd(b, a % b);
 }
 
-export { plus, times, average, square, cube, is_even, is_divisible, gcd };
+export { plus, times, average, square, cube, inc, is_even, is_divisible, gcd };

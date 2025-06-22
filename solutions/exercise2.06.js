@@ -1,5 +1,5 @@
 import { display } from "sicp";
-import { inc } from "./utils.js";
+import { inc } from "./math.js";
 
 const zero = (f) => (x) => x;
 

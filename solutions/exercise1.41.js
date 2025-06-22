@@ -1,5 +1,5 @@
 import { display } from "sicp";
-import { inc } from "./utils.js";
+import { inc } from "./math.js";
 
 function double(f) {
   return (x) => f(f(x));

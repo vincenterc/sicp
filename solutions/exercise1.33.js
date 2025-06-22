@@ -1,5 +1,5 @@
-import { identity, inc } from "./utils.js";
-import { plus, square, times } from "./math.js";
+import { identity } from "./utils.js";
+import { inc, plus, square, times } from "./math.js";
 
 function filtered_accumulate(combiner, null_value, term, a, next, b, filter) {
   return a > b

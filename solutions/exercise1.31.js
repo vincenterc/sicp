@@ -1,5 +1,6 @@
 import { display } from "sicp";
-import { identity, inc, is_even } from "./utils.js";
+import { identity } from "./utils.js";
+import { inc } from "./math.js";
 
 function product(term, a, next, b) {
   return a > b ? 1 : term(a) * product(term, next(a), next, b);
