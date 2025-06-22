@@ -10,7 +10,7 @@ import {
   pair,
   tail,
 } from "sicp";
-import { make_2d_table } from "./table.js";
+import { make_2d_table } from "./utils.js";
 
 function attach_tag(type_tag, contents) {
   return is_number(contents) ? contents : pair(type_tag, contents);

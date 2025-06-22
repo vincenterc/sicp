@@ -8,7 +8,7 @@ import {
   pair,
   tail,
 } from "sicp";
-import { make_2d_table } from "./table.js";
+import { make_2d_table } from "./utils.js";
 
 // a.
 // The division's files should be pair(division_name, employee_records).

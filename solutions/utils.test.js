@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { make_2d_table } from "./table.js";
+import { make_2d_table } from "./utils.js";
 
-describe("the table library tests", () => {
+describe("Tests for the utils library", () => {
   it("tests the make_2d_table function", () => {
     const table = make_2d_table();
     const get = table("lookup");

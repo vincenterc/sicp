@@ -1,5 +1,5 @@
 import { head, is_number, is_string, list, tail } from "sicp";
-import { make_2d_table } from "./table.js";
+import { make_2d_table } from "./utils.js";
 
 // a.
 // Numbers and variables do not have obvious keys as type tags,

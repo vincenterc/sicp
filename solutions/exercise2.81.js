@@ -15,8 +15,8 @@ import {
   length,
   math_pow,
 } from "sicp";
+import { make_2d_table } from "./utils.js";
 import { square } from "./math.js";
-import { make_2d_table } from "./table.js";
 
 // a.
 // It will loop infinitely if we call exp with two complex numbers

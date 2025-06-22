@@ -11,8 +11,8 @@ import {
   pair,
   tail,
 } from "sicp";
+import { make_2d_table } from "./utils.js";
 import { gcd } from "./math.js";
-import { make_2d_table } from "./table.js";
 
 // function is_equal(x, y) {
 //   return apply_generic("is_equal", list(x, y));
