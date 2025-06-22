@@ -70,14 +70,6 @@ function install_integer_package() {
 }
 
 function install_rational_package() {
-  function numer(x) {
-    return head(x);
-  }
-
-  function denom(x) {
-    return tail(x);
-  }
-
   function make_rat(n, d) {
     const g = gcd(n, d);
     return pair(n / g, d / g);
