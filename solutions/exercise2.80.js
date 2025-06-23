@@ -208,10 +208,6 @@ function install_complex_package() {
     list("complex"),
     (x) => real_part(x) === 0 && imag_part(x) === 0,
   );
-  put("real_part", list("complex"), real_part);
-  put("imag_part", list("complex"), imag_part);
-  put("magnitude", list("complex"), magnitude);
-  put("angle", list("complex"), angle);
   put("make_from_real_imag", "complex", (x, y) =>
     tag(make_from_real_imag(x, y)),
   );

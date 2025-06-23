@@ -196,10 +196,6 @@ function install_complex_package() {
   put("sub", list("complex", "complex"), (z1, z2) => tag(sub_complex(z1, z2)));
   put("mul", list("complex", "complex"), (z1, z2) => tag(mul_complex(z1, z2)));
   put("div", list("complex", "complex"), (z1, z2) => tag(div_complex(z1, z2)));
-  put("real_part", list("complex"), real_part);
-  put("imag_part", list("complex"), imag_part);
-  put("magnitude", list("complex"), magnitude);
-  put("angle", list("complex"), angle);
   put("make_from_real_imag", "complex", (x, y) =>
     tag(make_from_real_imag(x, y)),
   );
