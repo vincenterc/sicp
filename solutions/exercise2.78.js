@@ -83,4 +83,4 @@ function apply_generic(op, args) {
     : error(list(op, type_tags), "no method for these types -- apply_generic");
 }
 
-export { add };
+export { attach_tag, type_tag, contents, add };
