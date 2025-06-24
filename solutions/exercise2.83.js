@@ -12,17 +12,12 @@ import { attach_tag, contents, make_2d_table, type_tag } from "./utils.js";
 import { gcd } from "./math.js";
 
 function install_raise_package() {
-  // TODO Same code as in install_rational_package
-  function numer(x) {
-    return head(x);
-  }
-
-  function denom(x) {
-    return tail(x);
-  }
-
   put("raise", list("integer"), (x) => make_rational(x, 1));
-  put("raise", list("rational"), (x) => make_real(numer(x) / denom(x)));
+  put("raise", list("rational"), (x) =>
+    make_real(
+      numer(attach_tag("rational", x)) / denom(attach_tag("rational", x)),
+    ),
+  );
   put("raise", list("real"), (x) => make_complex_from_real_imag(x, 0));
 
   return "done";
@@ -42,6 +37,14 @@ install_real_package();
 install_complex_package();
 install_rectangular_package();
 install_raise_package();
+
+function numer(x) {
+  return apply_generic("numer", list(x));
+}
+
+function denom(x) {
+  return apply_generic("denom", list(x));
+}
 
 function make_integer(n) {
   return get("make", "integer")(n);
@@ -70,6 +73,14 @@ function install_integer_package() {
 }
 
 function install_rational_package() {
+  function numer(x) {
+    return head(x);
+  }
+
+  function denom(x) {
+    return tail(x);
+  }
+
   function make_rat(n, d) {
     const g = gcd(n, d);
     return pair(n / g, d / g);
@@ -79,6 +90,8 @@ function install_rational_package() {
     return attach_tag("rational", x);
   }
 
+  put("numer", list("rational"), numer);
+  put("denom", list("rational"), denom);
   put("make", "rational", (n, d) => tag(make_rat(n, d)));
 
   return "done";

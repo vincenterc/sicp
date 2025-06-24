@@ -18,20 +18,15 @@ import { gcd } from "./math.js";
 const tower_of_types = list("integer", "rational", "real", "complex");
 
 function install_project_package() {
-  // TODO Same code as in install_rational_package
-  function numer(x) {
-    return head(x);
-  }
-
-  function denom(x) {
-    return tail(x);
-  }
-
   put("project", list("complex"), (n) => make_real(real_part(n)));
   put("project", list("real"), (n) => {
     return make_integer(math_round(n));
   });
-  put("project", list("rational"), (n) => make_integer(numer(n) / denom(n)));
+  put("project", list("rational"), (n) =>
+    make_integer(
+      numer(attach_tag("rational", n)) / denom(attach_tag("rational", n)),
+    ),
+  );
 
   return "done";
 }
@@ -119,6 +114,14 @@ function add(x, y) {
   return apply_generic("add", list(x, y));
 }
 
+function numer(x) {
+  return apply_generic("numer", list(x));
+}
+
+function denom(x) {
+  return apply_generic("denom", list(x));
+}
+
 function real_part(z) {
   return apply_generic("real_part", list(z));
 }
@@ -188,6 +191,8 @@ function install_rational_package() {
   }
 
   put("add", list("rational", "rational"), (x, y) => tag(add_rat(x, y)));
+  put("numer", list("rational"), numer);
+  put("denom", list("rational"), denom);
   put("make", "rational", (n, d) => tag(make_rat(n, d)));
 
   return "done";
@@ -255,20 +260,13 @@ function install_rectangular_package() {
 }
 
 function install_is_equal_package() {
-  // TODO Same code as in install_rational_package
-  function numer(x) {
-    return head(x);
-  }
-
-  function denom(x) {
-    return tail(x);
-  }
-
   put("is_equal", list("integer", "integer"), (x, y) => x === y);
   put(
     "is_equal",
     list("rational", "rational"),
-    (x, y) => numer(x) * denom(y) === denom(x) * numer(y),
+    (x, y) =>
+      numer(attach_tag("rational", x)) * denom(attach_tag("rational", y)) ===
+      denom(attach_tag("rational", x)) * numer(attach_tag("rational", y)),
   );
   put("is_equal", list("real", "real"), (x, y) => x === y);
   put(
@@ -279,17 +277,12 @@ function install_is_equal_package() {
 }
 
 function install_raise_package() {
-  // TODO Same code as in install_rational_package
-  function numer(x) {
-    return head(x);
-  }
-
-  function denom(x) {
-    return tail(x);
-  }
-
   put("raise", list("integer"), (x) => make_rational(x, 1));
-  put("raise", list("rational"), (x) => make_real(numer(x) / denom(x)));
+  put("raise", list("rational"), (x) =>
+    make_real(
+      numer(attach_tag("rational", x)) / denom(attach_tag("rational", x)),
+    ),
+  );
   put("raise", list("real"), (x) => make_complex_from_real_imag(x, 0));
 
   return "done";

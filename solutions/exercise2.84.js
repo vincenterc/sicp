@@ -70,6 +70,14 @@ function add(x, y) {
   return apply_generic("add", list(x, y));
 }
 
+function numer(x) {
+  return apply_generic("numer", list(x));
+}
+
+function denom(x) {
+  return apply_generic("denom", list(x));
+}
+
 function real_part(z) {
   return apply_generic("real_part", list(z));
 }
@@ -135,6 +143,8 @@ function install_rational_package() {
   }
 
   put("add", list("rational", "rational"), (x, y) => tag(add_rat(x, y)));
+  put("numer", list("rational"), numer);
+  put("denom", list("rational"), denom);
   put("make", "rational", (n, d) => tag(make_rat(n, d)));
 
   return "done";
@@ -202,17 +212,12 @@ function install_rectangular_package() {
 }
 
 function install_raise_package() {
-  // TODO Same code as in install_rational_package
-  function numer(x) {
-    return head(x);
-  }
-
-  function denom(x) {
-    return tail(x);
-  }
-
   put("raise", list("integer"), (x) => make_rational(x, 1));
-  put("raise", list("rational"), (x) => make_real(numer(x) / denom(x)));
+  put("raise", list("rational"), (x) =>
+    make_real(
+      numer(attach_tag("rational", x)) / denom(attach_tag("rational", x)),
+    ),
+  );
   put("raise", list("real"), (x) => make_complex_from_real_imag(x, 0));
 
   return "done";
