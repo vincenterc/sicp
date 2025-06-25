@@ -269,6 +269,7 @@ function install_is_equal_package() {
       denom(attach_tag("rational", x)) * numer(attach_tag("rational", y)),
   );
   put("is_equal", list("real", "real"), (x, y) => x === y);
+  // TODO Consider the precision
   put(
     "is_equal",
     list("complex", "complex"),
