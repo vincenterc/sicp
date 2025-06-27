@@ -168,10 +168,11 @@ function install_polynomial_package() {
   }
 
   function negate_poly(p) {
-    return make_poly(
-      variable(p),
-      map((t) => make_term(order(t), negate(coeff(t))), term_list(p)),
-    );
+    return make_poly(variable(p), negate_terms(term_list(p)));
+  }
+
+  function negate_terms(L) {
+    return map((t) => make_term(order(t), negate(coeff(t))), L);
   }
 
   function is_equal_to_zero_poly(p) {
