@@ -2,6 +2,7 @@ import {
   accumulate,
   apply_in_underlying_javascript,
   head,
+  is_null,
   is_undefined,
   list,
   map,
@@ -50,21 +51,35 @@ function install_polynomial_package() {
     return tail(p);
   }
 
+  function first_term(term_list) {
+    return head(term_list);
+  }
+
+  function rest_terms(term_list) {
+    return tail(term_list);
+  }
+
   function coeff(term) {
     return head(tail(term));
+  }
+
+  function is_equal_to_zero_poly(p) {
+    function helper(terms) {
+      return is_null(terms)
+        ? true
+        : is_equal_to_zero(coeff(first_term(terms)))
+          ? helper(rest_terms(terms))
+          : false;
+    }
+
+    return helper(term_list(p));
   }
 
   function tag(p) {
     return attach_tag("polynomial", p);
   }
 
-  put("is_equal_to_zero", list("polynomial"), (p) =>
-    accumulate(
-      (t, res) => (res ? is_equal_to_zero(coeff(t)) : res),
-      true,
-      term_list(p),
-    ),
-  );
+  put("is_equal_to_zero", list("polynomial"), is_equal_to_zero_poly);
   put("make", "polynomial", (variable, terms) =>
     tag(make_poly(variable, terms)),
   );
