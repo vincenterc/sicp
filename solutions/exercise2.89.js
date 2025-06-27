@@ -14,7 +14,7 @@ import {
 import { make_2d_table } from "./utils.js";
 import { attach_tag, contents, type_tag } from "./exercise2.78.js";
 
-// Modify functions below:
+// Modify functions below in the polynomial package:
 // function adjoin_term(term, term_list) {
 //   return is_equal_to_zero(coeff(term))
 //     ? term_list
@@ -22,6 +22,7 @@ import { attach_tag, contents, type_tag } from "./exercise2.78.js";
 //       ? pair(coeff(term), term_list)
 //       : adjoin_term(term, pair(0, term_list));
 // }
+//
 // function first_term(term_list) {
 //   return make_term(length(term_list) - 1, head(term_list));
 // }
