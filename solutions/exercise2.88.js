@@ -19,10 +19,7 @@ import { attach_tag, contents, type_tag } from "./exercise2.78.js";
 // to be included in the javascript umber package
 // put("negate", list("javascript_number"), (x) => tag(-x));
 // to be included in the rational package
-// put(
-//   "negate",
-//   list("rational", (x) => tag(make_rat(-numer(x), denom(x)))),
-// );
+// put("negate", list("rational"), (x) => tag(make_rat(-numer(x), denom(x))));
 // to be included in the complex package
 // put("negate", list("complex"), (x) =>
 //   tag(make_from_real_imag(-real_part(x), -imag_part(x))),
